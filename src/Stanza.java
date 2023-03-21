@@ -149,13 +149,15 @@ public class Stanza {
     null se l'attrezzo non e' presente.
 	**/
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
-		Attrezzo attrezzoCercato;
-		attrezzoCercato = null;
+		Attrezzo attrezzoCercato = null;
 		for (Attrezzo attrezzo : this.attrezzi) {
+			if(attrezzo == null) {
+				return attrezzoCercato;
+			}
 			if (attrezzo.getNome().equals(nomeAttrezzo))
-				attrezzoCercato = attrezzo;
+				attrezzoCercato = attrezzo;	
 		}
-		return attrezzoCercato;	
+		return attrezzoCercato;
 	}
 
 	/**
@@ -164,10 +166,16 @@ public class Stanza {
 	@return true se l'attrezzo e' stato rimosso, false altrimenti
 	**/
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		// TODO da implementare
+		for(int i = 0; i < NUMERO_MASSIMO_ATTREZZI; i++) {
+			if(this.attrezzi[i].equals(attrezzo)) {
+				this.attrezzi[i] = this.attrezzi[this.numeroAttrezzi];
+				this.attrezzi[this.numeroAttrezzi] = null;
+				this.numeroAttrezzi--;
+				return true;
+			}
+		}
 		return false;
 	}
-
 
 	public String[] getDirezioni() {
 		String[] direzioni = new String[this.numeroStanzeAdiacenti];

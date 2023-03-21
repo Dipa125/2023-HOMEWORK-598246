@@ -47,4 +47,10 @@ public class Attrezzo {
 		return this.getNome()+" ("+this.getPeso()+"kg)";
 	}
 
+	public boolean equals(Attrezzo attrezzo) {
+		if(this.getNome() == attrezzo.getNome()) {
+			return true;
+		}
+		return false;
+	}
 }

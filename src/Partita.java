@@ -7,18 +7,18 @@ Questa classe modella una partita del gioco
 **/
 public class Partita {
 
-	static final private int CFU_INIZIALI = 20;
+	//static final private int CFU_INIZIALI = 20;
 
 	private Labirinto labirinto;
 	private Stanza stanzaCorrente;
+	private Giocatore player;
 	private boolean finita;
-	private int cfu;
 	
 	public Partita(){
 		this.labirinto = new Labirinto();
-		this.stanzaCorrente = labirinto.getStanzaIniziale();	
+		this.stanzaCorrente = labirinto.getStanzaIniziale();
+		this.player = new Giocatore();	
 		this.finita = false;
-		this.cfu = CFU_INIZIALI;
 	}
 
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
@@ -27,6 +27,10 @@ public class Partita {
 
 	public Stanza getStanzaCorrente() {
 		return this.stanzaCorrente;
+	}
+	
+	public Giocatore getPlayer() {
+		return this.player;
 	}
 	
 	/**
@@ -42,7 +46,7 @@ public class Partita {
 	@return vero se partita finita
 	**/
 	public boolean isFinita() {
-		return finita || vinta() || (cfu == 0);
+		return finita || vinta() || (player.getCfu() == 0);
 	}
 
 	/**
@@ -51,13 +55,5 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
-
-	public int getCfu() {
-		return this.cfu;
-	}
-
-	public void setCfu(int cfu) {
-		this.cfu = cfu;		
-	}	
 
 }

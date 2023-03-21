@@ -23,7 +23,7 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'."; 
 		
-	static final private String[] elencoComandi = {"vai", "aiuto", "fine"};
+	static final private String[] elencoComandi = {"vai", "aiuto", "fine","prendi","posa"};
 
 	private Partita partita;
 
@@ -59,6 +59,12 @@ public class DiaDia {
 		}
 		else if (comandoDaEseguire.getNome().equals("vai"))
 			this.vai(comandoDaEseguire.getParametro());
+		
+		else if (comandoDaEseguire.getNome().equals("prendi"))
+			this.prendi(comandoDaEseguire.getParametro());
+		
+		else if (comandoDaEseguire.getNome().equals("posa"))
+			this.posa(comandoDaEseguire.getParametro());
 		
 		else if (comandoDaEseguire.getNome().equals("aiuto"))
 			this.aiuto();
@@ -98,12 +104,72 @@ public class DiaDia {
 			System.out.println("Direzione inesistente");
 		else {
 			this.partita.setStanzaCorrente(prossimaStanza);
-			int cfu = this.partita.getCfu();
-			this.partita.setCfu(cfu--);
+			int cfu = this.partita.getPlayer().getCfu();
+			this.partita.getPlayer().setCfu(cfu--);
 		}
 		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
 
+	/**
+	Comando "Prendi".
+	**/
+	private void prendi(String nome) {
+		if(nome==null){
+			System.out.println("Cosa vuoi prendere?");
+			String lista_attrezzi = "";
+			for(Attrezzo elem : this.partita.getStanzaCorrente().getAttrezzi()){
+				if(elem != null) {
+					lista_attrezzi += elem;
+					lista_attrezzi += "		";
+				}
+				else
+					break;
+			}
+			System.out.println(lista_attrezzi);
+		}
+		Attrezzo attrezzoDaPrendere = null;
+		attrezzoDaPrendere = this.partita.getStanzaCorrente().getAttrezzo(nome);
+		if (attrezzoDaPrendere == null)
+			System.out.println("Attrezzo inesistente");
+		else {
+			if(this.partita.getPlayer().getBorsa().addAttrezzo(attrezzoDaPrendere)) {
+				System.out.println("Attrezzo preso");
+				this.partita.getStanzaCorrente().removeAttrezzo(attrezzoDaPrendere);				
+			}
+		}
+		System.out.println(partita.getStanzaCorrente().getDescrizione());
+	}
+	
+	/**
+	Comando "Posa".
+	**/
+	private void posa(String nome) {
+		if(nome==null){
+			System.out.println("Cosa vuoi posare?");
+			String lista_attrezzi = "";
+			for(Attrezzo elem : this.partita.getPlayer().getBorsa().getAttrezzi()){
+				if(elem != null) {
+					lista_attrezzi += elem;
+					lista_attrezzi += "		";
+				}
+				else
+					break;
+			}
+			System.out.println(lista_attrezzi);
+		}
+		Attrezzo attrezzoDaPosare = null;
+		attrezzoDaPosare = this.partita.getPlayer().getBorsa().getAttrezzo(nome);
+		if (attrezzoDaPosare == null)
+			System.out.println("Attrezzo inesistente");
+		else {
+			if(this.partita.getStanzaCorrente().addAttrezzo(attrezzoDaPosare)) {
+				System.out.println("Attrezzo posato");
+				this.partita.getPlayer().getBorsa().removeAttrezzo(nome);
+			}
+		}
+		System.out.println(partita.getStanzaCorrente().getDescrizione());
+	}
+	
 	/**
 	Comando "Fine".
 	**/
