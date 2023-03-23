@@ -114,60 +114,62 @@ public class DiaDia {
 	Comando "Prendi".
 	**/
 	private void prendi(String nome) {
-		if(nome==null){
-			System.out.println("Cosa vuoi prendere?");
-			String lista_attrezzi = "";
-			for(Attrezzo elem : this.partita.getStanzaCorrente().getAttrezzi()){
-				if(elem != null) {
-					lista_attrezzi += elem;
-					lista_attrezzi += "		";
+		if(nome == null) {
+			System.out.println("Quale oggetto vuoi prendere?");
+			String lista = "";
+			for(Attrezzo a : this.partita.getStanzaCorrente().getAttrezzi()) {
+				//if(a != null) {
+					lista += a;
+					lista += "     ";
+				//}
+			}
+			System.out.println(lista);
+		}
+		else {
+			Attrezzo daPrendere = this.partita.getStanzaCorrente().getAttrezzo(nome);
+			if(daPrendere == null)
+				System.out.println("Attrezzo inesistente");
+			else {
+				if(this.partita.getPlayer().getBorsa().addAttrezzo(daPrendere)) {
+					this.partita.getStanzaCorrente().removeAttrezzo(daPrendere);
+					System.out.println("Attrezzo preso");
 				}
 				else
-					break;
+					System.out.println("Borsa piena");
 			}
-			System.out.println(lista_attrezzi);
+			System.out.println(partita.getStanzaCorrente().getDescrizione());
 		}
-		Attrezzo attrezzoDaPrendere = null;
-		attrezzoDaPrendere = this.partita.getStanzaCorrente().getAttrezzo(nome);
-		if (attrezzoDaPrendere == null)
-			System.out.println("Attrezzo inesistente");
-		else {
-			if(this.partita.getPlayer().getBorsa().addAttrezzo(attrezzoDaPrendere)) {
-				System.out.println("Attrezzo preso");
-				this.partita.getStanzaCorrente().removeAttrezzo(attrezzoDaPrendere);				
-			}
-		}
-		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
 	
 	/**
 	Comando "Posa".
 	**/
 	private void posa(String nome) {
-		if(nome==null){
-			System.out.println("Cosa vuoi posare?");
-			String lista_attrezzi = "";
-			for(Attrezzo elem : this.partita.getPlayer().getBorsa().getAttrezzi()){
-				if(elem != null) {
-					lista_attrezzi += elem;
-					lista_attrezzi += "		";
+		if(nome == null) {
+			System.out.println("Quale oggetto vuoi posare?");
+			String lista = "";
+			for(Attrezzo a : this.partita.getPlayer().getBorsa().getAttrezzi()) {
+				//if(a != null) {
+					lista += a;
+					lista += "     ";
+				//}
+			}
+			System.out.println(lista);
+		}
+		else {
+			Attrezzo daPosare = this.partita.getPlayer().getBorsa().getAttrezzo(nome);
+			if(daPosare == null)
+				System.out.println("Attrezzo inesistente");
+			else {
+				if(this.partita.getStanzaCorrente().addAttrezzo(daPosare)) {
+					this.partita.getPlayer().getBorsa().removeAttrezzo(nome);
+					System.out.println("Attrezzo posato");
 				}
 				else
-					break;
+					System.out.println("Stanza piena");	
 			}
-			System.out.println(lista_attrezzi);
+			System.out.println(partita.getStanzaCorrente().getDescrizione());
 		}
-		Attrezzo attrezzoDaPosare = null;
-		attrezzoDaPosare = this.partita.getPlayer().getBorsa().getAttrezzo(nome);
-		if (attrezzoDaPosare == null)
-			System.out.println("Attrezzo inesistente");
-		else {
-			if(this.partita.getStanzaCorrente().addAttrezzo(attrezzoDaPosare)) {
-				System.out.println("Attrezzo posato");
-				this.partita.getPlayer().getBorsa().removeAttrezzo(nome);
-			}
-		}
-		System.out.println(partita.getStanzaCorrente().getDescrizione());
 	}
 	
 	/**
