@@ -122,10 +122,10 @@ public class DiaDia {
 			System.out.println("Quale oggetto vuoi prendere?");
 			String lista = "";
 			for(Attrezzo a : this.partita.getStanzaCorrente().getAttrezzi()) {
-				//if(a != null) {
+				if(a != null) {
 					lista += a;
 					lista += "     ";
-				//}
+				}
 			}
 			System.out.println(lista);
 		}
@@ -153,10 +153,10 @@ public class DiaDia {
 			System.out.println("Quale oggetto vuoi posare?");
 			String lista = "";
 			for(Attrezzo a : this.partita.getPlayer().getBorsa().getAttrezzi()) {
-				//if(a != null) {
+				if(a != null) {
 					lista += a;
 					lista += "     ";
-				//}
+				}
 			}
 			System.out.println(lista);
 		}
