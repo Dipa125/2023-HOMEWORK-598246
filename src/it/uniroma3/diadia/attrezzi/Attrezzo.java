@@ -50,9 +50,12 @@ public class Attrezzo {
 	}
 
 	public boolean equals(Attrezzo attrezzo) {
-		if(this.getNome() == attrezzo.getNome()) {
+		if(this.getNome() == null)
+			return false;
+		
+		else if(this.getNome() == attrezzo.getNome())
 			return true;
-		}
+		
 		return false;
 	}
 }

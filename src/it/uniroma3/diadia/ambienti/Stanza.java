@@ -136,8 +136,8 @@ public class Stanza {
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		boolean trovato;
 		trovato = false;
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
+		for (int i = 0; i < numeroAttrezzi; i++ ) {
+			if (attrezzi[i].getNome().equals(nomeAttrezzo))
 				trovato = true;
 		}
 		return trovato;
@@ -167,7 +167,7 @@ public class Stanza {
 	@return true se l'attrezzo e' stato rimosso, false altrimenti
 	**/
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		for(int i = 0; i < NUMERO_MASSIMO_ATTREZZI; i++) {
+		for(int i = 0; i < numeroAttrezzi; i++) {
 			if(this.attrezzi[i].equals(attrezzo)) {
 				this.attrezzi[i] = this.attrezzi[this.numeroAttrezzi-1];
 				this.attrezzi[this.numeroAttrezzi-1] = null;
@@ -185,4 +185,6 @@ public class Stanza {
 	    return direzioni;
     }
 
+	
+	
 }

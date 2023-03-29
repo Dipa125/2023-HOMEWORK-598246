@@ -43,7 +43,7 @@ public class Partita {
 	@return vero se partita vinta
 	**/
 	public boolean vinta() {
-		return this.getStanzaCorrente()== labirinto.getStanzaVincente();
+		return this.getStanzaCorrente() == labirinto.getStanzaVincente();
 	}
 
 	/**
@@ -60,5 +60,5 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
-
+	
 }
