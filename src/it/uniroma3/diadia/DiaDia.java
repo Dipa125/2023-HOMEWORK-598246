@@ -31,9 +31,9 @@ public class DiaDia {
 	private Partita partita;
 	private IOConsole IO;
 
-	public DiaDia() {
+	public DiaDia(IOConsole io) {
 		this.partita = new Partita();
-		this.IO = new IOConsole();
+		this.IO = io;
 	}
 
 	public void gioca() {
@@ -44,7 +44,7 @@ public class DiaDia {
 		do		
 			istruzione = this.IO.leggiRiga();
 		while (!processaIstruzione(istruzione));
-	}   
+	}
 
 	/**
 	Processa una istruzione 
@@ -184,7 +184,8 @@ public class DiaDia {
 	}
 
 	public static void main(String[] argc) {
-		DiaDia gioco = new DiaDia();
+		IOConsole io = new IOConsole();
+		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
 		
 	}
