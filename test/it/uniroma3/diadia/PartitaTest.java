@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 class PartitaTest {
 
 	private Partita partita;
-	
+	private IOConsole IO;
 	
 	@BeforeEach
 	void SetUp() {
-		System.out.println("Test Partita");
-		this.partita = new Partita();
+		this.IO = new IOConsole();
+		this.partita = new Partita(IO);
 		
 		
 	}
