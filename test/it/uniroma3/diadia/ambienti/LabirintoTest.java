@@ -14,7 +14,6 @@ class LabirintoTest {
 	
 	@BeforeEach
 	void SetUp() {
-		System.out.println("Test Labirinto");
 		this.labirinto = new Labirinto();
 		this.iniziale = new Stanza("Atrio");
 		this.finale = new Stanza("Biblioteca");

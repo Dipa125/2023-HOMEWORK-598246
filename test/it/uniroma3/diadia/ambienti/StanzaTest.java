@@ -14,7 +14,6 @@ class StanzaTest {
 	
 	@BeforeEach
 	void setUp() {
-		System.out.println("Test Stanza");
 		this.vuota = new Stanza("Vuota");
 		this.nonVuota = new Stanza("Non Vuota");
 		this.osso = new Attrezzo("osso", 1);
