@@ -1,7 +1,5 @@
 package it.uniroma3.diadia;
 
-import it.uniroma3.diadia.ambienti.*;
-import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.comandi.Comando;
 import it.uniroma3.diadia.comandi.FabbricaDiComandi;
 import it.uniroma3.diadia.comandi.FabbricaDiComandiFisarmonica;
@@ -31,20 +29,20 @@ public class DiaDia {
 		
 
 	private Partita partita;
-	private IOConsole IO;
+	private IO io;
 
-	public DiaDia(IOConsole IO) {
-		this.partita = new Partita(IO);
-		this.IO = IO;
+	public DiaDia(IO io) {
+		this.partita = new Partita(io);
+		this.io = io;
 	}
 
 	public void gioca() {
 		String istruzione;
 		
-		this.IO.mostraMessaggio(MESSAGGIO_BENVENUTO);
+		this.io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 		
 		do		
-			istruzione = this.IO.leggiRiga();
+			istruzione = this.io.leggiRiga();
 		while (!processaIstruzione(istruzione));
 	}
 
@@ -70,7 +68,7 @@ public class DiaDia {
 
 
 	public static void main(String[] argc) {
-		IOConsole io = new IOConsole();
+		IO io = new IOConsole();
 		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
 		

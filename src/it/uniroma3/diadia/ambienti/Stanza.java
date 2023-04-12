@@ -115,11 +115,11 @@ public class Stanza {
 	**/
     public String toString() {
     	StringBuilder risultato = new StringBuilder();
-    	risultato.append(this.nome);
-    	risultato.append("\nUscite: ");
+    	risultato.append("Stanza Corrente: " + this.nome);
+    	risultato.append("\nUscite:");
     	for (String direzione : this.direzioni)
     		if (direzione!=null)
-    			risultato.append(" " + direzione);
+    			risultato.append(" " + direzione+"("+getStanzaAdiacente(direzione).getNome()+")");
     	risultato.append("\nAttrezzi nella stanza: ");
     	for (Attrezzo attrezzo : this.attrezzi) {
     		if(attrezzo != null) {

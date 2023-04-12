@@ -18,14 +18,14 @@ public class Partita {
 	private Stanza stanzaCorrente;
 	private Giocatore giocatore;
 	private boolean finita;
-	private IOConsole IO;
+	private IO io;
 	
-	public Partita(IOConsole IO){
+	public Partita(IO io){
 		this.labirinto = new Labirinto();
 		this.stanzaCorrente = labirinto.getStanzaIniziale();
 		this.giocatore = new Giocatore();	
 		this.finita = false;
-		this.IO = IO;
+		this.io = io;
 	}
 
 	public void setStanzaCorrente(Stanza stanzaCorrente) {
@@ -40,8 +40,8 @@ public class Partita {
 		return this.giocatore;
 	}
 	
-	public IOConsole getIO() {
-		return this.IO;
+	public IO getIO() {
+		return this.io;
 	}
 	
 	/**
