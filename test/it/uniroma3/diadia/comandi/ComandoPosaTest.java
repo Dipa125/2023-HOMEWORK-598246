@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.IOConsole;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
@@ -13,15 +14,15 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 class ComandoPosaTest {
 
 	private Partita partita;
-	private IOConsole IO;
+	private IO io;
 	private Comando comando;
 	private Attrezzo chiave;
 	
 	
 	@BeforeEach
 	void SetUp() {
-		IO = new IOConsole();
-		partita = new Partita(IO);
+		io = new IOConsole();
+		partita = new Partita(io);
 		chiave = new Attrezzo("chiave",1);
 		partita.getGiocatore().getBorsa().addAttrezzo(chiave);
 		comando = new ComandoPosa();

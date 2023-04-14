@@ -10,9 +10,8 @@ public class ComandoNonValido implements Comando {
 	}
 	
 	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-	}
+	public void setParametro(String parametro){}
+	
 	@Override
 	public String getNome() {
 		return "non valido";

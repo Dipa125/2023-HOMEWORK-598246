@@ -9,11 +9,9 @@ public class ComandoFine implements Comando {
 		partita.getIO().mostraMessaggio("Mancava così poco...");
 		partita.setFinita();
 	}
-
+	
 	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-	}
+	public void setParametro(String parametro){}
 	
 	@Override
 	public String getNome() {

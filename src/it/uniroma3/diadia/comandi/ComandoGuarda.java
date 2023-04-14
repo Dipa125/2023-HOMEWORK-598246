@@ -9,11 +9,9 @@ public class ComandoGuarda implements Comando {
 		partita.getIO().mostraMessaggio(partita.getStanzaCorrente().toString());
 
 	}
-
+	
 	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-	}
+	public void setParametro(String parametro){}
 	
 	@Override
 	public String getNome() {

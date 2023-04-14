@@ -11,11 +11,9 @@ public class ComandoAiuto implements Comando {
 		partita.getIO().mostraMessaggio("");
 
 	}
-
+	
 	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-	}
+	public void setParametro(String parametro){}
 	
 	@Override
 	public String getNome() {
