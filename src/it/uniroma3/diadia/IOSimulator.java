@@ -37,19 +37,7 @@ public class IOSimulator implements IO {
 		return riga;
 	}
 	
-	public String[] getInput() {
-		return this.input;
-	}
-	
 	public String[] getOutput() {
 		return this.output;
-	}
-
-	public int getContoInput() {
-		return this.contoInput;
-	}
-	
-	public int getContoOutput() {
-		return this.contoOutput;
 	}
 }
