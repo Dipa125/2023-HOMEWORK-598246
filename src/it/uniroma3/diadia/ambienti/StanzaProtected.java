@@ -12,14 +12,14 @@ import it.uniroma3.diadia.attrezzi.*;
  * @version base
 */
 
-public class Stanza {
+public class StanzaProtected {
 	
-	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
-	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
+	static final protected int NUMERO_MASSIMO_DIREZIONI = 4;
+	static final protected int NUMERO_MASSIMO_ATTREZZI = 10;
 	
 	private String nome;
-	private Attrezzo[] attrezzi;
-	private int numeroAttrezzi;
+	protected Attrezzo[] attrezzi;
+	protected int numeroAttrezzi;
     private Stanza[] stanzeAdiacenti;
     private int numeroStanzeAdiacenti;
 	private String[] direzioni;
@@ -28,7 +28,7 @@ public class Stanza {
     Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
     @param nome il nome della stanza
     **/
-    public Stanza(String nome) {
+    public StanzaProtected(String nome) {
         this.nome = nome;
         this.numeroStanzeAdiacenti = 0;
         this.numeroAttrezzi = 0;
@@ -37,14 +37,6 @@ public class Stanza {
         this.attrezzi = new Attrezzo[NUMERO_MASSIMO_ATTREZZI];
     }
 
-	public int getNumeroAttrezzi() {
-    	return this.numeroAttrezzi;
-    }
-    
-    public void setNumeroAttrezzi(int numeroAttrezzi) {
-    	this.numeroAttrezzi = numeroAttrezzi;
-    }
-    
     /**
     Imposta una stanza adiacente.
     
@@ -127,7 +119,7 @@ public class Stanza {
     	risultato.append("\nUscite:");
     	for (String direzione : this.direzioni)
     		if (direzione!=null)
-    			risultato.append(" " + direzione);
+    			risultato.append(" " + direzione+"("+getStanzaAdiacente(direzione).getNome()+")");
     	risultato.append("\nAttrezzi nella stanza: ");
     	for (Attrezzo attrezzo : this.attrezzi) {
     		if(attrezzo != null) {
@@ -192,13 +184,7 @@ public class Stanza {
 	    	direzioni[i] = this.direzioni[i];
 	    return direzioni;
     }
+
 	
-	@Override
-	public boolean equals(Object o) {
-		Stanza test = (Stanza) o;
-		if(this.nome == test.getNome()) {
-			return true;
-		}
-		return false;
-	}
+	
 }
