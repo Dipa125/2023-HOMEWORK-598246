@@ -1,5 +1,6 @@
 package it.uniroma3.diadia.attrezzi;
 
+
 /**
 Una semplice classe che modella un attrezzo.
 Gli attrezzi possono trovarsi all'interno delle stanze
@@ -10,7 +11,7 @@ Ogni attrezzo ha un nome ed un peso.
 @see Stanza
 @version base
 **/
-public class Attrezzo {
+public class Attrezzo{
 
 	private String nome;
 	private int peso;

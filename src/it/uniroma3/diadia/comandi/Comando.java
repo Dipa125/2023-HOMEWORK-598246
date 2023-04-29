@@ -4,7 +4,7 @@ import it.uniroma3.diadia.Partita;
 
 public interface Comando {
 	
-	static final String[] elencoComandi = {"vai","aiuto","fine","prendi","posa","guarda"};
+	static final String[] elencoComandi = {"vai","aiuto","fine","prendi","posa","guarda","borsa"};
 	
 	public void esegui(Partita partita);
 	public void setParametro(String parametro);

@@ -1,11 +1,11 @@
 package it.uniroma3.diadia.giocatore;
 
 import it.uniroma3.diadia.attrezzi.*;
+import java.util.*;
 
 public class Borsa {
 	public final static int DEFAULT_PESO_MAX_BORSA = 10;
-	private Attrezzo[] attrezzi;
-	private int numeroAttrezzi;
+	private List<Attrezzo> attrezzi;
 	private int pesoMax;
 	
 	public Borsa() {
@@ -14,20 +14,14 @@ public class Borsa {
 	
 	public Borsa(int pesoMax) {
 		this.pesoMax = pesoMax;
-		this.attrezzi = new Attrezzo[10]; // speriamo bastino...
-		this.numeroAttrezzi = 0;
+		this.attrezzi = new ArrayList<Attrezzo>();
 	}
 	
 	public boolean addAttrezzo(Attrezzo attrezzo) {
 		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax())
 			return false;
-		
-		if (this.numeroAttrezzi==10)
-			return false;
 			
-		this.attrezzi[this.numeroAttrezzi] = attrezzo;
-		this.numeroAttrezzi++;
-		return true;
+		return this.attrezzi.add(attrezzo);
 	}
 	
 	public int getPesoMax() {
@@ -35,30 +29,31 @@ public class Borsa {
 	}
 	
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
-		Attrezzo a = null;
-		for (int i= 0; i<this.numeroAttrezzi; i++)
-			if(this.attrezzi[i] != null) {
-				if (this.attrezzi[i].getNome().equals(nomeAttrezzo))
-					a = attrezzi[i];
-			}
-	
-		return a;
+		Iterator<Attrezzo> iteratore = this.attrezzi.iterator();
+		while(iteratore.hasNext()) {
+			Attrezzo a = iteratore.next();
+			if(a.getNome() == nomeAttrezzo)
+				return a;			
+		}
+		return null;
 	}
 	
-	public Attrezzo[] getAttrezzi() {
+	public List<Attrezzo> getAttrezzi() {
 		return attrezzi;
 	}
 	
 	public int getPeso() {
 		int peso = 0;
-		for (int i= 0; i<this.numeroAttrezzi; i++)
-			peso += this.attrezzi[i].getPeso();
-	
+		Iterator<Attrezzo> iteratore = this.attrezzi.iterator();
+		while(iteratore.hasNext()) {
+			peso += iteratore.next().getPeso();
+						
+		}
 		return peso;
 	}
 	
 	public boolean isEmpty() {
-		return this.numeroAttrezzi == 0;
+		return this.attrezzi.size() == 0;
 	}
 
 	public boolean hasAttrezzo(String nomeAttrezzo) {
@@ -67,25 +62,25 @@ public class Borsa {
 	
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
-		if(hasAttrezzo(nomeAttrezzo)) {
-			a = this.getAttrezzo(nomeAttrezzo);
-			for(int i = 0; i < numeroAttrezzi; i++) {
-				if(this.attrezzi[i].equals(a)) {
-					this.attrezzi[i] = this.attrezzi[numeroAttrezzi-1];
-					this.attrezzi[numeroAttrezzi-1] = null;
-					this.numeroAttrezzi--;
-				}
-			}
-		}	
-		return a;
+		Iterator<Attrezzo> iteratore = this.attrezzi.iterator();
+		while(iteratore.hasNext()) {
+			a = iteratore.next();
+			if(a.getNome() == nomeAttrezzo) {
+				iteratore.remove();
+				return a;
+			}			
+		}
+		return null;
 	}
 	
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		if (!this.isEmpty()) {
 			s.append("Contenuto borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
-			for (int i= 0; i<this.numeroAttrezzi; i++)
-				s.append(attrezzi[i].toString()+" ");
+			Iterator<Attrezzo> iteratore = this.attrezzi.iterator();
+			while(iteratore.hasNext()) {
+				s.append(iteratore.next().toString()+" ");
+			}
 		}
 		else
 			s.append("Borsa vuota");
