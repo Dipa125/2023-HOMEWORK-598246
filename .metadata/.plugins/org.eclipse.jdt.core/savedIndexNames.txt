@@ -1,0 +1,19 @@
+INDEX VERSION 1.131+C:\Users\Matteo\eclipse-workspace\2023-HOMEWORK-598246\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+833624695.index
+2660906035.index
+414343393.index
+590755888.index
+2471090534.index
+3609350051.index
+3214698104.index
+3317999040.index
+1754782284.index
+2864533659.index
+930851426.index
+1689902319.index
+3258732563.index
+242190915.index
+1645167921.index
+398721244.index
+1495191879.index
