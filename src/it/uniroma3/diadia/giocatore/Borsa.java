@@ -32,8 +32,8 @@ public class Borsa {
 		Iterator<Attrezzo> iteratore = this.attrezzi.iterator();
 		while(iteratore.hasNext()) {
 			Attrezzo a = iteratore.next();
-			if(a.getNome() == nomeAttrezzo)
-				return a;			
+			if(nomeAttrezzo.equals(a.getNome()))
+				return a;
 		}
 		return null;
 	}
@@ -65,7 +65,7 @@ public class Borsa {
 		Iterator<Attrezzo> iteratore = this.attrezzi.iterator();
 		while(iteratore.hasNext()) {
 			a = iteratore.next();
-			if(a.getNome() == nomeAttrezzo) {
+			if(nomeAttrezzo.equals(a.getNome())) {
 				iteratore.remove();
 				return a;
 			}			

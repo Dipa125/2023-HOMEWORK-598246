@@ -21,7 +21,7 @@ class BorsaTest {
 		this.borsa = new Borsa();
 		this.osso = new Attrezzo("osso", 1);
 		this.penna = new Attrezzo("penna", 1);
-		this.sasso = new Attrezzo("Sasso", 30);
+		this.sasso = new Attrezzo("sasso", 30);
 		this.borsa.addAttrezzo(osso);
 	}
 	
@@ -31,13 +31,20 @@ class BorsaTest {
 		assertFalse(this.borsa.addAttrezzo(sasso));
 	}
 	
+	@Test
 	void testRemoveAttrezzo() {
 		assertEquals(this.osso, this.borsa.removeAttrezzo("osso"));
 	}
 	
+	@Test
 	void testHasAttrezzo() {
 		assertTrue(this.borsa.hasAttrezzo("osso"));
 		assertFalse(this.borsa.hasAttrezzo("penna"));
+	}
+	
+	@Test
+	void getAttrezzo() {
+		assertEquals(this.osso, this.borsa.getAttrezzo("osso"));
 	}
 
 }
