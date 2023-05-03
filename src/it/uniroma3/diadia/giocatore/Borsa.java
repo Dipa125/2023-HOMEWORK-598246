@@ -73,6 +73,7 @@ public class Borsa {
 		return null;
 	}
 	
+	@Override
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		if (!this.isEmpty()) {

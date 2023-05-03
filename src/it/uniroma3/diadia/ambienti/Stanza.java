@@ -116,6 +116,7 @@ public class Stanza {
 	stampadone la descrizione, le uscite e gli eventuali attrezzi contenuti
 	@return la rappresentazione stringa
 	**/
+    @Override
     public String toString() {
     	StringBuilder risultato = new StringBuilder();
     	risultato.append("Stanza Corrente: " + this.nome);
@@ -197,5 +198,10 @@ public class Stanza {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.getNome().hashCode();
 	}
 }

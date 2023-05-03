@@ -53,7 +53,7 @@ public class Attrezzo{
 	@Override
 	public boolean equals(Object o) {
 		Attrezzo a = (Attrezzo) o;
-		if(this.getNome() == null)
+		if((this.getNome()==null) || (a.getNome()==null))
 			return false;
 		
 		else if((this.getNome()==a.getNome()) && (this.getPeso()==a.getPeso()))
@@ -61,4 +61,16 @@ public class Attrezzo{
 		
 		return false;
 	}
+	
+	@Override
+	public int hashCode() {
+		return this.getNome().hashCode() + this.getPeso();
+	}
+	
+	
+	
+	
+	
+	
+	
 }
