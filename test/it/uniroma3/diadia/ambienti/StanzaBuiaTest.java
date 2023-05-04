@@ -22,16 +22,22 @@ class StanzaBuiaTest {
 	
 	@Test
 	void stanzaSenzaLuceTest() {
-		atrio.addAttrezzo(penna);
-		assertEquals("qui c'è un buio pesto", atrio.getDescrizione());
+		this.atrio.addAttrezzo(penna);
+		assertEquals("qui c'è un buio pesto", this.atrio.getDescrizione());
 	}
 	
 	@Test
 	void stanzaConLuceTest() {
-		atrio.addAttrezzo(torcia);
+		this.atrio.addAttrezzo(torcia);
 		assertEquals("Stanza Corrente: Atrio\n"
 				   + "Uscite:\n"
-				   + "Attrezzi nella stanza: torcia(2kg) ", atrio.getDescrizione());
+				   + "Attrezzi nella stanza: torcia(2kg) ", this.atrio.getDescrizione());
 	}
 
+	@Test
+	void testGetDescrizioneBuia() {
+		this.atrio.addAttrezzo(penna);
+		assertEquals("qui c'è un buio pesto",this.atrio.getDescrizione());
+	}
+	
 }

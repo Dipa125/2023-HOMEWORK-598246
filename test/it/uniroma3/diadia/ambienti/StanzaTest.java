@@ -8,36 +8,41 @@ import org.junit.jupiter.api.Test;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 class StanzaTest {
-	private Stanza vuota;
-	private Stanza nonVuota;
+	private Stanza atrio;
 	private Attrezzo osso;
+	private Attrezzo penna;
 	
 	@BeforeEach
 	void setUp() {
-		this.vuota = new Stanza("Vuota");
-		this.nonVuota = new Stanza("Non Vuota");
+		this.atrio = new Stanza("atrio");
 		this.osso = new Attrezzo("osso", 1);
-		this.nonVuota.addAttrezzo(this.osso);
+		this.penna = new Attrezzo("penna",1);
+		this.atrio.addAttrezzo(osso);
 		
 		
 	}
 	
 	@Test
 	void testHasAttrezzo() {
-		assertFalse(this.vuota.hasAttrezzo("osso"));
-		assertTrue(this.nonVuota.hasAttrezzo("osso"));
+		assertTrue(this.atrio.hasAttrezzo("osso"));
+		assertFalse(this.atrio.hasAttrezzo("penna"));
 	}
 	
 
 	@Test
 	void testRemoveAttrezzo() {
-		assertTrue(this.nonVuota.removeAttrezzo(this.osso));
-		assertFalse(this.vuota.removeAttrezzo(this.osso));
+		assertTrue(this.atrio.removeAttrezzo(this.osso));
+		assertFalse(this.atrio.hasAttrezzo("osso"));
 	}
 	
 	@Test
 	void testaddAttrezzo() {
-		assertTrue(this.vuota.addAttrezzo(this.osso));
+		assertTrue(this.atrio.addAttrezzo(this.penna));
+		assertTrue(this.atrio.hasAttrezzo("penna"));
 	}
 
+	@Test
+	void testGetAttrezzo() {
+		assertEquals(this.osso,this.atrio.getAttrezzo("osso"));
+	}
 }
