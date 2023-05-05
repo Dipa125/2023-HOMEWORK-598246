@@ -4,13 +4,17 @@ public class StanzaBloccata extends Stanza{
 
 	private String direzioneBloccata;
 	private String oggetto;
-	
+
+//--Costruttore di una Stanza Bloccata
 	public StanzaBloccata(String nome,String direzioneBloccata, String oggetto) {
 		super(nome);
 		this.direzioneBloccata = direzioneBloccata;
 		this.oggetto = oggetto;
 	}
-	
+
+/*------------------------SOVRASCRITTURE DI STANZA------------------------*/	
+
+//--Ritorna se stessa se la direzione selezionata è bloccata
 	@Override
 	public Stanza getStanzaAdiacente(String dir) {
 		if(dir == direzioneBloccata && !this.hasAttrezzo(oggetto)) {
@@ -18,7 +22,8 @@ public class StanzaBloccata extends Stanza{
 		}
 		return super.getStanzaAdiacente(dir);
 	}
-	
+
+//--Ritorna una descrizione personalizzata se la direzione selezionata è bloccata
 	@Override
 	public String getDescrizione() {
 		if(!this.hasAttrezzo(oggetto)) {

@@ -9,17 +9,34 @@ class StanzaMagica extends Stanza {
 	
 	private int contatoreAttrezziPosati;
 	private int sogliaMagica;
-		
+
+//--Costruttore di una Stanza Magica senza soglia
 	public StanzaMagica(String nome) {
 		this(nome, SOGLIA_MAGICA_DEFAULT);
 	}
-	
+
+	//--Costruttore di una Stanza Magica con soglia
 	public StanzaMagica(String nome, int soglia) {
 		super(nome);
 		this.contatoreAttrezziPosati = 0;
 		this.sogliaMagica = soglia;
 	}
+
+/*------------------------MODIFICHE STANZA MAGICA------------------------*/
 	
+//--Inverte il nome di un attrezzo
+	private Attrezzo modificaAttrezzo(Attrezzo attrezzo) {
+		StringBuilder nomeInvertito;
+		int pesoX2 = attrezzo.getPeso() * 2;
+		nomeInvertito = new StringBuilder(attrezzo.getNome());
+		nomeInvertito = nomeInvertito.reverse();
+		attrezzo = new Attrezzo(nomeInvertito.toString(),pesoX2);
+		return attrezzo;
+	}
+	
+/*------------------------SOVRASCRITTURE DI STANZA------------------------*/
+
+//--Inverte il nome dell'attrezzo inserito se è attivo il funzionamento magico
 	@Override
 	public boolean addAttrezzo(Attrezzo attrezzo) {
 				
@@ -35,12 +52,5 @@ class StanzaMagica extends Stanza {
 		else return false;
 	}
 	
-	private Attrezzo modificaAttrezzo(Attrezzo attrezzo) {
-		StringBuilder nomeInvertito;
-		int pesoX2 = attrezzo.getPeso() * 2;
-		nomeInvertito = new StringBuilder(attrezzo.getNome());
-		nomeInvertito = nomeInvertito.reverse();
-		attrezzo = new Attrezzo(nomeInvertito.toString(),pesoX2);
-		return attrezzo;
-	}
+	
 }
