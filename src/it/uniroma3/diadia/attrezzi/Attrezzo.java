@@ -7,7 +7,7 @@ del labirinto.
 Ogni attrezzo ha un nome ed un peso.
 **/
 
-public class Attrezzo{
+public class Attrezzo implements Comparable<Attrezzo>{
 
 	private String nome;
 	private int peso;
@@ -35,6 +35,16 @@ public class Attrezzo{
 	@Override
 	public String toString() {return this.getNome()+"("+this.getPeso()+"kg)";}
 
+//--Funzione per l'ordinamento
+	@Override
+	public int compareTo(Attrezzo a) {
+		int n = this.getPeso() - a.getPeso();
+		if(n == 0)
+			n = this.getNome().compareTo(a.getNome());
+		
+		return n;
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		Attrezzo a = (Attrezzo) o;

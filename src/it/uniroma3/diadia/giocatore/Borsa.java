@@ -1,6 +1,8 @@
 package it.uniroma3.diadia.giocatore;
 
 import it.uniroma3.diadia.attrezzi.*;
+import it.uniroma3.diadia.comparatori.ComparatoreAttrezzoPerNome;
+
 import java.util.*;
 
 public class Borsa {
@@ -75,6 +77,40 @@ public class Borsa {
 		return null;
 	}
 
+	
+	
+/*-----------------------------ORDINAMENTO-----------------------------*/
+	
+//--Restituisce la lista degli attrezzi ordinati per peso e poi per nome	
+	public List<Attrezzo> getContenutoOrdinatoPerPeso(){
+		List<Attrezzo> lista = this.attrezzi;
+		Collections.sort(lista);
+		return lista;
+	}
+
+//--Restituisce l'insieme degli attrezzi nella borsa ordinati per nome
+	public SortedSet<Attrezzo> getContenutoOrdinatoPerNome(){
+		ComparatoreAttrezzoPerNome comparatoreNome = new ComparatoreAttrezzoPerNome();
+		SortedSet<Attrezzo> insieme= new TreeSet<Attrezzo>(comparatoreNome);
+		insieme.addAll(this.attrezzi);
+		return insieme;
+	}
+
+//--Restituisce una mappa: CHIAVE(peso) --> VALORE(attrezzi con stesso peso)
+	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso(){
+		Map<Integer,Set<Attrezzo>> mappa = new TreeMap<Integer,Set<Attrezzo>>();
+		for(Attrezzo a : this.attrezzi) {
+			if(!mappa.containsKey(a.getPeso())) {
+				Set<Attrezzo> insieme = new HashSet<Attrezzo>();
+				insieme.add(a);
+				mappa.put(a.getPeso(),insieme);
+			}
+			else
+				mappa.get(a.getPeso()).add(a);
+		}	
+		return mappa;
+	}
+	
 /*--------------------------OVERRIDE--------------------------*/
 
 //--Rappresentazione di stringa di Borsa
