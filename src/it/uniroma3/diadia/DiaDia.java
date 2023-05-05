@@ -9,11 +9,6 @@ Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
 Per giocare crea un'istanza di questa classe e invoca il letodo gioca
 
 Questa e' la classe principale crea e istanzia tutte le altre
-
-@author  docente di POO 
-(da un'idea di Michael Kolling and David J. Barnes) 
-          
-@version base
 **/
 public class DiaDia {
 
@@ -31,14 +26,21 @@ public class DiaDia {
 	private Partita partita;
 	private IO io;
 
+/*-----------------------------COSTRUTTORE-----------------------------*/	
+
+//--Costruttore di tutto il gioco
 	public DiaDia(IO io) {
 		this.partita = new Partita(io);
 		this.io = io;
 	}
 
+	
+	
+/*----------------------------GIOCO-----------------------------*/
+
+//--Funzione che permette di giocare ocn un ciclo
 	public void gioca() {
 		String istruzione;
-		
 		this.io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 		
 		do		
@@ -46,11 +48,7 @@ public class DiaDia {
 		while (!processaIstruzione(istruzione));
 	}
 
-	/**
-	Processa una istruzione 
-	
-	@return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
-	**/
+//--Processa le istruzione
 	private boolean processaIstruzione(String istruzione) {
 		Comando comandoDaEseguire;
 		FabbricaDiComandi factory = new FabbricaDiComandiFisarmonica();
@@ -66,7 +64,11 @@ public class DiaDia {
 		return this.partita.isFinita();
 	} 
 
+	
+	
+/*----------------------------MAIN-----------------------------*/
 
+//--Prima parte di codice eseguita
 	public static void main(String[] argc) {
 		IO io = new IOConsole();
 		DiaDia gioco = new DiaDia(io);

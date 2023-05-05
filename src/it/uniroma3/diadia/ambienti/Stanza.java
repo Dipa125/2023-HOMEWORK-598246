@@ -4,15 +4,11 @@ import java.util.*;
 import it.uniroma3.diadia.attrezzi.*;
 
 /**
- * Classe Stanza - una stanza in un gioco di ruolo.
- * Una stanza e' un luogo fisico nel gioco.
- * E' collegata ad altre stanze attraverso delle uscite.
- * Ogni uscita e' associata ad una direzione.
- * 
- * @author docente di POO 
- * @see Attrezzo
- * @version base
-*/
+Una stanza e' un luogo fisico nel gioco.
+E' collegata ad altre stanze attraverso delle uscite.
+Ogni uscita e' associata ad una direzione.
+Alcune stanze contengono degli oggetti
+**/
 
 public class Stanza {
 
@@ -21,7 +17,9 @@ public class Stanza {
 	private String nome;
 	private Set<Attrezzo> attrezzi;
 	private Map<String,Stanza> stanzeAdiacenti;
-    
+
+/*-----------------------------COSTRUTTORE-----------------------------*/	
+	
 //--Costruttore di una stanza vuota senza uscite
     public Stanza(String nome) {
         this.nome = nome;
@@ -29,7 +27,9 @@ public class Stanza {
         this.attrezzi = new HashSet<Attrezzo>();
     }
 
-/*-------------------------------GET-------------------------------*/
+    
+    
+/*---------------------------------GET----------------------------------*/
     
 //--Restituisce il nome della stanza
     public String getNome() {return this.nome;}
@@ -73,7 +73,7 @@ public class Stanza {
 
 //--Controlla se un attrezzo esiste nella stanza
 	public boolean hasAttrezzo(String nomeAttrezzo) {
-		return this.attrezzi.contains(this.getAttrezzo(nomeAttrezzo));
+		return this.getAttrezzo(nomeAttrezzo)!= null;
 	}
 
 //--Restituisce l'attrezzo nomeAttrezzo se presente nella stanza
@@ -95,6 +95,8 @@ public class Stanza {
 			
 	}	
 
+	
+	
 /*--------------------------OVERRIDE--------------------------*/	
 	
 //--Restituisce una rappresentazione stringa di questa stanza

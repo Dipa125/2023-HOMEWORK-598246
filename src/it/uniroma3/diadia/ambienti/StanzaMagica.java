@@ -10,6 +10,8 @@ class StanzaMagica extends Stanza {
 	private int contatoreAttrezziPosati;
 	private int sogliaMagica;
 
+/*-----------------------------COSTRUTTORE-----------------------------*/	
+	
 //--Costruttore di una Stanza Magica senza soglia
 	public StanzaMagica(String nome) {
 		this(nome, SOGLIA_MAGICA_DEFAULT);

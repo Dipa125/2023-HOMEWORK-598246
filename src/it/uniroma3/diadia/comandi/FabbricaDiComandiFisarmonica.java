@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi {
 	
+/*-----------------------------SCELTA COMANDO------------------------------*/
+	
+//--Confronta l'input con tutti i comandi per trovare quale eseguire	
 	@Override
 	public Comando costruisciComando(String istruzione) {
 		Scanner scannerDiParole = new Scanner(istruzione);

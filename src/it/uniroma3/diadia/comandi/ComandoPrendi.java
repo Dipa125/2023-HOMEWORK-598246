@@ -6,7 +6,10 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public class ComandoPrendi implements Comando {
 
 	private String oggetto;
-	
+
+/*------------------------FUNZIONI PER IL COMANDO-----------------------*/
+
+//--Prende un oggetto dalla stanza e lo mette nella borsa
 	@Override
 	public void esegui(Partita partita) {
 		if(oggetto == null) {
@@ -40,10 +43,16 @@ public class ComandoPrendi implements Comando {
 
 	}
 
+//--Setta il parametro per il comando se è presente	
 	@Override
 	public void setParametro(String parametro) {
 		this.oggetto = parametro;
 	}
+	
+	
+	
+	
+/*------------------------FUNZIONI PER I TEST-----------------------*/
 	
 	@Override
 	public String getNome() {

@@ -6,7 +6,10 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public class ComandoPosa implements Comando{
 
 	private String oggetto;
-	
+
+/*------------------------FUNZIONI PER IL COMANDO-----------------------*/
+
+//--Posa un oggetto dalla borsa e lo posa nella stanza
 	@Override
 	public void esegui(Partita partita) {
 		if(oggetto == null) {
@@ -37,10 +40,15 @@ public class ComandoPosa implements Comando{
 
 	}
 
+//--Setta il parametro per il comando se è presente	
 	@Override
 	public void setParametro(String parametro) {
 		this.oggetto = parametro;
 	}
+	
+	
+	
+/*------------------------FUNZIONI PER I TEST-----------------------*/
 	
 	@Override
 	public String getNome() {

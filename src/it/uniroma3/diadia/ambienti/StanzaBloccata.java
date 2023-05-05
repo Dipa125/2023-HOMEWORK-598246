@@ -5,6 +5,8 @@ public class StanzaBloccata extends Stanza{
 	private String direzioneBloccata;
 	private String oggetto;
 
+/*-----------------------------COSTRUTTORE-----------------------------*/	
+	
 //--Costruttore di una Stanza Bloccata
 	public StanzaBloccata(String nome,String direzioneBloccata, String oggetto) {
 		super(nome);

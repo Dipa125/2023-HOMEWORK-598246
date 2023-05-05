@@ -7,6 +7,8 @@ public class IOSimulator implements IO {
 	private int contoIstruzioniConsumate;
 	private String[] output;
 	private int contoOutput;
+
+/*-----------------------------COSTRUTTORE-----------------------------*/	
 	
 	public IOSimulator(String[] istruzioni) {
 		this.input = istruzioni;

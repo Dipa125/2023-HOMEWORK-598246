@@ -4,6 +4,8 @@ public class StanzaBuia extends Stanza{
 
 	private String oggetto;
 
+/*-----------------------------COSTRUTTORE-----------------------------*/
+	
 //--Costruttore di una Stanza Buia
 	public StanzaBuia(String nome, String oggetto) {
 		super(nome);

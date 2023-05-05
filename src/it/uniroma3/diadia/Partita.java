@@ -3,22 +3,18 @@ package it.uniroma3.diadia;
 import it.uniroma3.diadia.giocatore.*;
 import it.uniroma3.diadia.ambienti.*;
 
-/**
+/*
 Questa classe modella una partita del gioco
-
-@author  docente di POO
-@see Stanza
-@version base
-**/
+*/
 public class Partita {
-
-	//static final private int CFU_INIZIALI = 20;
 
 	private Labirinto labirinto;
 	private Stanza stanzaCorrente;
 	private Giocatore giocatore;
 	private boolean finita;
 	private IO io;
+
+/*-----------------------------COSTRUTTORE-----------------------------*/		
 	
 	public Partita(IO io){
 		this.labirinto = new Labirinto();
@@ -28,45 +24,38 @@ public class Partita {
 		this.io = io;
 	}
 
-	public void setStanzaCorrente(Stanza stanzaCorrente) {
-		this.stanzaCorrente = stanzaCorrente;
-	}
+/*------------------------------SET/GET-------------------------------*/
 
-	public Stanza getStanzaCorrente() {
-		return this.stanzaCorrente;
-	}
+//--Imposta la stanza in cui è il giocatore
+	public void setStanzaCorrente(Stanza stanzaCorrente) {this.stanzaCorrente = stanzaCorrente;}
+
+//--Ritorna la stanza in cui è il giocatore	
+	public Stanza getStanzaCorrente() {return this.stanzaCorrente;}
+
+//--Ritorna il Giocatore		
+	public Giocatore getGiocatore() {return this.giocatore;}
+
+//--Ritorna IO	
+	public IO getIO() {return this.io;}
 	
-	public Giocatore getGiocatore() {
-		return this.giocatore;
-	}
+//--Imposta la partita come finita
+	public void setFinita() {this.finita = true;}	
 	
-	public IO getIO() {
-		return this.io;
-	}
+/*-------------------------GESTIONE DEL GIOCO--------------------------*/
 	
-	/**
-	Restituisce vero se e solo se la partita e' stata vinta
-	@return vero se partita vinta
-	**/
+//--Restituisce vero se e solo se la partita e' stata vinta
 	public boolean vinta() {
 		return this.getStanzaCorrente() == labirinto.getStanzaVincente();
 	}
 
-	/**
-	Restituisce vero se e solo se la partita e' finita
-	@return vero se partita finita
-	**/
+
+//--Restituisce vero se e solo se la partita e' finita
 	public boolean isFinita() {
 		return finita || vinta() || (giocatore.getCfu() == 0);
 	}
 
-	/**
-	Imposta la partita come finita
-	**/
-	public void setFinita() {
-		this.finita = true;
-	}
-	
+
+//--Restituisce vero solo se il giocatore è ancora vivo
 	public boolean giocatoreIsVivo() {
 		if(this.giocatore.getCfu() <= 0) {
 			return false;

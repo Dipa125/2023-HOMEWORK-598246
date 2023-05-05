@@ -5,14 +5,23 @@ public class Labirinto {
 
 	private Stanza stanzaIniziale;
 	private Stanza stanzaVincente;
+
+/*-----------------------------COSTRUTTORE-----------------------------*/	
 	
 	public Labirinto() {
 		creaStanze();
 	}
-	
-	/**
-    Crea tutte le stanze e le porte di collegamento
-    **/
+
+/*-------------------------------GET/SET------------------------------------*/
+	public Stanza getStanzaIniziale() {return stanzaIniziale;}
+    
+    public Stanza getStanzaVincente() {return stanzaVincente;}
+   
+    public void SetStanzaIniziale(Stanza iniziale) {this.stanzaVincente = iniziale;}
+    
+    public void SetStanzaVincente(Stanza vincente) {this.stanzaVincente = vincente;}
+    
+/*-------------CREA TUTTE LE STANZE, I COLLEGAMENTI E GLI OGGETTI------------------*/
     private void creaStanze() {
 
 		/* crea gli attrezzi */
@@ -48,22 +57,4 @@ public class Labirinto {
         stanzaIniziale = atrio;  
 		stanzaVincente = biblioteca;
     }
-
-    public Stanza getStanzaIniziale() {
-    	return stanzaIniziale;
-    }
-    
-    public Stanza getStanzaVincente() {
-		return stanzaVincente;
-	}
-   
-    public void SetStanzaIniziale(Stanza iniziale) {
-    	this.stanzaVincente = iniziale;
-    }
-    
-    public void SetStanzaVincente(Stanza vincente) {
-    	this.stanzaVincente = vincente;
-    }
-    
-    
 }
