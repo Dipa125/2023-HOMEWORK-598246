@@ -1,0 +1,9 @@
+package it.uniroma3.diadia;
+
+public class Oggetto {
+
+	private int n;
+	private String s;
+	
+	public oggetto
+}

@@ -1,0 +1,35 @@
+package it.uniroma3.diadia;
+
+public class Oggetto {
+
+	private int num;
+	private String str;
+	
+	public Oggetto(int n, String s) {
+		this.num = n;
+		this.str = s;
+	}
+	
+	public int getNum() {
+		return this.num;
+	}
+	
+	public String getStr() {
+		return this.str;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Oggetto k = (Oggetto) o;
+		if(this.num == k.getNum()) {
+			System.out.println("Sono Uguali");
+			return true;
+		}
+		return false;
+	}
+	@Override
+	public String toString() {
+		return "<"+this.getNum()+"|"+this.getStr()+">";
+	}
+	
+}

@@ -1,0 +1,133 @@
+package it.uniroma3.diadia.ambienti;
+
+import java.util.*;
+
+public class LabirintoBuilder {
+	
+	static private Map<String,String> direzioni;
+	
+	private Labirinto labirinto;
+	private List<Stanza> listaStanze;
+	
+/*-----------------------------COSTRUTTORE-----------------------------*/
+	
+//--Crea un labirinto vuoto
+	public LabirintoBuilder() {
+		this.labirinto = new Labirinto();
+		this.listaStanze = new ArrayList<Stanza>();
+		
+	//--Direzioni ammissibili
+		this.direzioni = new HashMap<String,String>();
+		direzioni.put("nord", "sud");
+		direzioni.put("sud", "nord");
+		direzioni.put("est", "ovest");
+		direzioni.put("ovest", "est");
+	}
+	
+	
+	
+/*---------------------------------GET---------------------------------*/
+	
+//--Ritorna il labirinto creato
+	public Labirinto getLabirinto() {return this.labirinto;}
+	
+//--Ritorna una stanza del nome indicato
+	public Stanza getStanza(String nomeStanza) {
+		Iterator<Stanza> iteratore = this.listaStanze.iterator();
+		while(iteratore.hasNext()) {
+			Stanza s = iteratore.next();
+			if(s.getNome().equals(nomeStanza)){return s;}
+		}
+		return null;
+	}
+	
+/*-------------------------------STANZA--------------------------------*/
+
+//--Crea una stanza e la imposta come stanza iniziale del labirinto
+	public void addStanzaIniziale(String nomeStanza) {
+		Stanza stanzaIniziale = this.getStanza(nomeStanza);
+		if( stanzaIniziale == null) {
+			stanzaIniziale = new Stanza(nomeStanza);
+			this.listaStanze.add(stanzaIniziale);
+			this.labirinto.SetStanzaIniziale(stanzaIniziale);
+		}
+		else {this.labirinto.SetStanzaIniziale(stanzaIniziale);}
+	}
+
+//--Imposta la stanza vincente, se non è quella iniziale ne crea una nuova
+	public void addStanzaVincente(String nomeStanza) {
+		Stanza stanzaVincente = this.getStanza(nomeStanza);
+		if(stanzaVincente == null) {
+			stanzaVincente = new Stanza(nomeStanza);
+			this.listaStanze.add(stanzaVincente);
+			this.labirinto.SetStanzaVincente(stanzaVincente);
+		}
+		else {this.labirinto.SetStanzaVincente(stanzaVincente);}
+	}
+
+//--Collega due stanze
+	public void addAdiacenza(String nomeStanzaCorrente, String nomeStanzaCollegata, String direzione) {
+		Stanza stanzaCorrente = this.getStanza(nomeStanzaCorrente);
+		Stanza stanzaCollegata = this.getStanza(nomeStanzaCollegata);
+		if((stanzaCorrente != null) && (stanzaCollegata != null) && direzioni.containsKey(direzione)) {
+			stanzaCorrente.impostaStanzaAdiacente(direzione, stanzaCollegata);
+			stanzaCollegata.impostaStanzaAdiacente(direzioni.get(direzione), stanzaCorrente);
+		}
+		else {System.out.print("Stanza non trovata o direzione non ammissibile");}
+	}
+
+//--Crea una stanza Normale
+	public void addStanza(String nomeStanza) {
+		Stanza nuova = this.getStanza(nomeStanza);
+		if(nuova == null) {
+			nuova = new Stanza(nomeStanza);
+			this.listaStanze.add(nuova);
+		}
+		else {System.out.print("Stanza già esistente");}
+	}
+
+//--Crea una stanza Magica con soglia di default
+	public void addStanzaMagica(String nomeStanza) {
+		Stanza nuova = this.getStanza(nomeStanza);
+		if(nuova == null) {
+			nuova = new StanzaMagica(nomeStanza);
+			this.listaStanze.add(nuova);
+		}
+		else {System.out.print("Stanza già esistente");}
+	}
+	
+//--Crea una stanza Magica con soglia impostata
+	public void addStanzaMagica(String nomeStanza, int soglia) {
+		Stanza nuova = this.getStanza(nomeStanza);
+		if(nuova == null) {
+			nuova = new StanzaMagica(nomeStanza,soglia);
+			this.listaStanze.add(nuova);
+		}
+		else {System.out.print("Stanza già esistente");}
+	}
+	
+//--Crea una stanza Bloccata
+	public void addStanzaBloccata(String nomeStanza, String direzione, String oggetto) {
+		Stanza nuova = this.getStanza(nomeStanza);
+		if(nuova == null) {
+			nuova = new StanzaBloccata(nomeStanza, direzione, oggetto);
+			this.listaStanze.add(nuova);
+		}
+		else {System.out.print("Stanza già esistente");}
+	}
+	
+//--Crea una stanza Buia
+	public void addStanzaBuia(String nomeStanza, String oggetto) {
+		Stanza nuova = this.getStanza(nomeStanza);
+		if(nuova == null) {
+			nuova = new StanzaBuia(nomeStanza, oggetto);
+			this.listaStanze.add(nuova);
+		}
+		else {System.out.print("Stanza già esistente");}
+	}	
+/*-------------------------------ATTREZZO------------------------------*/
+	
+	
+	
+	
+}

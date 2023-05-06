@@ -1,0 +1,68 @@
+package it.uniroma3.diadia.ambienti;
+
+import java.util.*;
+
+public class LabirintoBuilder {
+	
+	private Labirinto labirinto;
+	private Set<Stanza> listaStanze;
+	
+/*-----------------------------COSTRUTTORE-----------------------------*/
+	
+//--Crea un labirinto vuoto
+	public LabirintoBuilder() {
+		this.labirinto = new Labirinto();
+		this.listaStanze = new HashSet<Stanza>();
+	}
+	
+	
+	
+/*---------------------------------GET---------------------------------*/
+	
+//--Ritorna il labirinto creato
+	public Labirinto getLabirinto() {return this.labirinto;}
+	
+//--Ritorna una stanza del nome indicato
+	public Stanza getStanza(String nomeStanza) {
+		Iterator<Stanza> iteratore = this.listaStanze.iterator();
+		while(iteratore.hasNext()) {
+			Stanza s = iteratore.next();
+			if(s.getNome().equals(nomeStanza)){return s;}
+		}
+		return null;
+	}
+	
+/*-------------------------------STANZA--------------------------------*/
+
+//--Crea una stanza e la imposta come stanza iniziale del labirinto
+	public void addStanzaIniziale(String nomeStanza) {
+			Stanza stanzaIniziale = new Stanza(nomeStanza);
+			this.listaStanze.add(stanzaIniziale);
+			this.labirinto.SetStanzaIniziale(stanzaIniziale);
+		}
+
+//--Imposta la stanza vincente, se non è quella iniziale ne crea una nuova
+	public void addStanzaVincente(String nomeStanza) {
+		Stanza stanzaVincente = this.getStanza(nomeStanza);
+		if(stanzaVincente == null) {
+			stanzaVincente = new Stanza(nomeStanza);
+			this.listaStanze.add(stanzaVincente);
+			this.labirinto.SetStanzaVincente(stanzaVincente);
+		}
+		else {this.labirinto.SetStanzaVincente(stanzaVincente);}
+	}
+
+//--Collega due stanze
+	public void addAdiacenza(String nomeStanzaCorrente, String nomeStanzaCollegata, String direzione) {
+		
+	}
+	
+	public void addStanza(String nomeStanza) {
+		
+	}
+/*-------------------------------ATTREZZO------------------------------*/
+	
+	
+	
+	
+}

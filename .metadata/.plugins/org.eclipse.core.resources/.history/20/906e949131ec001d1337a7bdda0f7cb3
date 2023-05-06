@@ -1,0 +1,20 @@
+package it.uniroma3.diadia;
+
+import java.util.*;
+
+public class Prova {
+	private Set<Oggetto> set;
+	
+	public Prova() {
+		this.set = new HashSet<Oggetto>();
+		Oggetto o1 = new Oggetto(0,"primo");
+		set.add(o1);
+		System.out.println(set);
+	}
+	
+	public void addOggetto(Oggetto o) {
+		this.set.add(o);
+		System.out.println(set);
+		
+	}
+}

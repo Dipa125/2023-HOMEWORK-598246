@@ -1,0 +1,42 @@
+package it.uniroma3.diadia.ambienti;
+
+public class LabirintoBuilder {
+	
+	private Labirinto labirinto;
+	
+/*-----------------------------COSTRUTTORE-----------------------------*/
+	
+//--Crea un labirinto vuoto
+	public LabirintoBuilder() {
+		this.labirinto = new Labirinto();
+	}
+	
+/*---------------------------------GET---------------------------------*/
+	
+//--Ritorna il labirinto creato
+	public Labirinto getLabirinto() {return this.labirinto;}
+	
+/*-------------------------------STANZA--------------------------------*/
+	
+	public void addStanzaIniziale(String nomeStanza) {
+			Stanza stanzaIniziale = new Stanza(nomeStanza);
+			this.labirinto.SetStanzaIniziale(stanzaIniziale);
+		}
+	
+	public void addStanzaVincente(String nomeStanza) {
+		
+	}
+	
+	public void addAdiacenza(String nomeStanzaCorrente, String nomeStanzaCollegata, String direzione) {
+		
+	}
+	
+	public void addStanza(String nomeStanza) {
+		
+	}
+/*-------------------------------ATTREZZO------------------------------*/
+	
+	
+	
+	
+}
