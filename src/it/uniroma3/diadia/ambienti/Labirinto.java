@@ -12,6 +12,8 @@ public class Labirinto {
 		creaStanze();
 	}
 
+	
+	
 /*-------------------------------GET/SET------------------------------------*/
 	public Stanza getStanzaIniziale() {return stanzaIniziale;}
     
@@ -20,6 +22,8 @@ public class Labirinto {
     public void SetStanzaIniziale(Stanza iniziale) {this.stanzaVincente = iniziale;}
     
     public void SetStanzaVincente(Stanza vincente) {this.stanzaVincente = vincente;}
+    
+    
     
 /*-------------CREA TUTTE LE STANZE, I COLLEGAMENTI E GLI OGGETTI------------------*/
     private void creaStanze() {

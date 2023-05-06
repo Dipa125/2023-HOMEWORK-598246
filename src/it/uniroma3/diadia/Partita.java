@@ -16,8 +16,8 @@ public class Partita {
 
 /*-----------------------------COSTRUTTORE-----------------------------*/		
 	
-	public Partita(IO io){
-		this.labirinto = new Labirinto();
+	public Partita(Labirinto labirinto,IO io){
+		this.labirinto = labirinto;
 		this.stanzaCorrente = labirinto.getStanzaIniziale();
 		this.giocatore = new Giocatore();	
 		this.finita = false;
@@ -39,7 +39,10 @@ public class Partita {
 	public IO getIO() {return this.io;}
 	
 //--Imposta la partita come finita
-	public void setFinita() {this.finita = true;}	
+	public void setFinita() {this.finita = true;}
+	
+//--Imposta il labirinto
+	public void setLabirinto(Labirinto labirinto) {this.labirinto = labirinto;}
 	
 /*-------------------------GESTIONE DEL GIOCO--------------------------*/
 	
