@@ -5,19 +5,21 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
+
 
 
 class PartitaTest {
 
 	private Partita partita;
-	private IOConsole IO;
+	private IOConsole io;
 	
 	@BeforeEach
 	void SetUp() {
-		this.IO = new IOConsole();
-		this.partita = new Partita(IO);
-		
-		
+		this.io = new IOConsole();
+		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").getLabirinto();
+		this.partita = new Partita(labirinto, io);
 	}
 	
 	@Test

@@ -17,6 +17,8 @@ class LabirintoTest {
 		this.labirinto = new Labirinto();
 		this.iniziale = new Stanza("Atrio");
 		this.finale = new Stanza("Biblioteca");
+		this.labirinto.SetStanzaIniziale(iniziale);
+		this.labirinto.SetStanzaVincente(finale);
 	}
 
 	@Test

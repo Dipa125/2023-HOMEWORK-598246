@@ -7,22 +7,22 @@ import org.junit.jupiter.api.Test;
 
 import it.uniroma3.diadia.IOConsole;
 import it.uniroma3.diadia.Partita;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 
 class ComandoPrendiTest {
 
 	private Partita partita;
-	private IOConsole IO;
+	private IOConsole io;
 	private Comando comando;
-	private Attrezzo chiave;
 	
 	
 	@BeforeEach
 	void SetUp() {
-		IO = new IOConsole();
-		partita = new Partita(IO);
-		chiave = new Attrezzo("chiave",1);
-		partita.getStanzaCorrente().addAttrezzo(chiave);
+		io = new IOConsole();
+		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("chiave", 1)
+													.getLabirinto();
+		partita = new Partita(labirinto, io);
 		comando = new ComandoPrendi();
 		comando.setParametro("chiave");
 	}
