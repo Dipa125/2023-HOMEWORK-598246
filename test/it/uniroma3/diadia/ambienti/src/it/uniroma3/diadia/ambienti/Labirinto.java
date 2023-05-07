@@ -1,0 +1,19 @@
+package it.uniroma3.diadia.ambienti;
+
+public class Labirinto {
+
+	private Stanza stanzaIniziale;
+	private Stanza stanzaVincente;
+
+/*-----------------------------COSTRUTTORE-----------------------------*/	
+
+/*-------------------------------GET/SET------------------------------------*/
+	public Stanza getStanzaIniziale() {return stanzaIniziale;}
+    
+    public Stanza getStanzaVincente() {return stanzaVincente;}
+   
+    public void SetStanzaIniziale(Stanza iniziale) {this.stanzaIniziale = iniziale;}
+    
+    public void SetStanzaVincente(Stanza vincente) {this.stanzaVincente = vincente;}
+   
+}

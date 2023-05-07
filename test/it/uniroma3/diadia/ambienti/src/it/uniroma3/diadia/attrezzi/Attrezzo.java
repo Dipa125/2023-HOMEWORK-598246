@@ -1,0 +1,64 @@
+package it.uniroma3.diadia.attrezzi;
+
+/**
+Una semplice classe che modella un attrezzo.
+Gli attrezzi possono trovarsi all'interno delle stanze
+del labirinto.
+Ogni attrezzo ha un nome ed un peso.
+**/
+
+public class Attrezzo implements Comparable<Attrezzo>{
+
+	private String nome;
+	private int peso;
+
+/*-----------------------------COSTRUTTORE-----------------------------*/
+	
+//--Crea un attrezzo
+	public Attrezzo(String nome, int peso) {
+		this.peso = peso;
+		this.nome = nome;
+	}
+
+/*---------------------------------GET----------------------------------*/
+
+//--Restituisce il nome identificatore dell'attrezzo
+	public String getNome() {return this.nome;}
+
+
+//--Restituisce il peso dell'attrezzo
+	public int getPeso() {return this.peso;}
+
+/*-------------------------------OVERRIDE-------------------------------*/
+	
+//--Restituisce una rappresentazione stringa di questo attrezzo
+	@Override
+	public String toString() {return this.getNome()+"("+this.getPeso()+"kg)";}
+
+//--Funzione per l'ordinamento
+	@Override
+	public int compareTo(Attrezzo a) {
+		int n = this.getPeso() - a.getPeso();
+		if(n == 0)
+			n = this.getNome().compareTo(a.getNome());
+		
+		return n;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Attrezzo a = (Attrezzo) o;
+		if((this.getNome()==null) || (a.getNome()==null))
+			return false;
+		
+		else if((this.getNome().equals(a.getNome())) && (this.getPeso()==a.getPeso()))
+			return true;
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.getNome().hashCode() + this.getPeso();
+	}	
+}
