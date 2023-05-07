@@ -8,7 +8,7 @@ public class StanzaBloccata extends Stanza{
 /*-----------------------------COSTRUTTORE-----------------------------*/	
 	
 //--Costruttore di una Stanza Bloccata
-	public StanzaBloccata(String nome,String direzioneBloccata, String oggetto) {
+	public StanzaBloccata(String nome, String direzioneBloccata, String oggetto) {
 		super(nome);
 		this.direzioneBloccata = direzioneBloccata;
 		this.oggetto = oggetto;

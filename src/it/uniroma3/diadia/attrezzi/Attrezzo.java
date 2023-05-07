@@ -51,7 +51,7 @@ public class Attrezzo implements Comparable<Attrezzo>{
 		if((this.getNome()==null) || (a.getNome()==null))
 			return false;
 		
-		else if((this.getNome()==a.getNome()) && (this.getPeso()==a.getPeso()))
+		else if((this.getNome().equals(a.getNome())) && (this.getPeso()==a.getPeso()))
 			return true;
 		
 		return false;

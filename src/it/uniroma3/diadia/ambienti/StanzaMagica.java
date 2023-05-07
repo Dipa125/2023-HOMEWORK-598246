@@ -36,6 +36,12 @@ class StanzaMagica extends Stanza {
 		return attrezzo;
 	}
 	
+//--True se è attivo l'effetto magico
+	public boolean isMagica() {
+		if(this.sogliaMagica - this.contatoreAttrezziPosati > 0) {return false;}
+		return true;
+	}
+	
 /*------------------------SOVRASCRITTURE DI STANZA------------------------*/
 
 //--Inverte il nome dell'attrezzo inserito se è attivo il funzionamento magico

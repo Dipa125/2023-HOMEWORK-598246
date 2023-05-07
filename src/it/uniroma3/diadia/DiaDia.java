@@ -1,6 +1,7 @@
 package it.uniroma3.diadia;
 
 import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comandi.*;
 
 /**
@@ -23,15 +24,33 @@ public class DiaDia {
 		
 
 	private Partita partita;
-	private Labirinto labirinto;
 	private IO io;
 
 /*-----------------------------COSTRUTTORE-----------------------------*/	
 
 //--Costruttore di tutto il gioco
-	public DiaDia(Labirinto labirinto, IO io) {
+	public DiaDia(IO io) {
+		
+		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("cartaccia", 1)
+													.addStanzaMagica("Laboratorio").addAttrezzo("tavolo", 15).addAttrezzo("pc", 5)
+													.addStanza("N10").addAttrezzo("lim", 30)
+													.addStanzaBloccata("N11","est","moneta").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)
+													.addStanza("Portineria").addAttrezzo("chiaveLunga", 3).addAttrezzo("chiave", 2)
+													.addStanza("N9").addAttrezzo("Torcia", 4)
+													.addStanzaBloccata("Mensa","sud","chiave").addAttrezzo("avanzi", 3)
+													.addStanzaBuia("Dispensa","torcia").addAttrezzo("moneta", 1)
+													.addStanzaVincente("Biblioteca")
+													.addAdiacenza("Atrio", "Laboratorio", "nord")
+													.addAdiacenza("Atrio", "Mensa", "sud")
+													.addAdiacenza("Atrio", "N10", "est")
+													.addAdiacenza("Laboratorio", "N9", "ovest")
+													.addAdiacenza("Mensa", "Dispensa", "sud")
+													.addAdiacenza("N10", "N11", "est")
+													.addAdiacenza("N11", "Portineria", "nord")
+													.addAdiacenza("N11", "Biblioteca", "est")
+													.getLabirinto();
+		
 		this.partita = new Partita(labirinto,io);
-		this.labirinto = labirinto;
 		this.io = io;
 	}
 
@@ -71,9 +90,9 @@ public class DiaDia {
 
 //--Prima parte di codice eseguita
 	public static void main(String[] argc) {
+
 		IO io = new IOConsole();
-		Labirinto labirinto = new Labirinto();
-		DiaDia gioco = new DiaDia(labirinto,io);
+		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
 	}
 

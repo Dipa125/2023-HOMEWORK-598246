@@ -35,7 +35,7 @@ public class Stanza {
     public String getNome() {return this.nome;}
     
 //--Restituisce la collezione di attrezzi presenti nella stanza
-  public Set<Attrezzo> getAttrezzi() {return this.attrezzi;}
+    public Set<Attrezzo> getAttrezzi() {return this.attrezzi;}
   
 //--Numero di attrezzi nella stanza
 	public int getNumeroAttrezzi() {return this.attrezzi.size();}
@@ -49,8 +49,9 @@ public class Stanza {
     
 //--Restituisce la descrizione della stanza
     public String getDescrizione() {return this.toString();}
-	
 
+//--Restituisce le stanze adiacenti
+    public Map<String, Stanza>getMapStanzeAdiacenti(){return this.stanzeAdiacenti;}
     
 /*-------------------------------STANZA-------------------------------*/
 

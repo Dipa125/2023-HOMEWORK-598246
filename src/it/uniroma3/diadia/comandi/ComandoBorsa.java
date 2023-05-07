@@ -14,11 +14,11 @@ public class ComandoBorsa implements Comando {
 		if(tipologia == null)
 			partita.getIO().mostraMessaggio(partita.getGiocatore().getBorsa().toString());
 		else if(tipologia.equals("peso"))
-			partita.getIO().mostraMessaggio(partita.getGiocatore().getBorsa().getContenutoOrdinatoPerPeso().toString());
+			partita.getIO().mostraMessaggio("Contenuto borsa" + partita.getGiocatore().getBorsa().getContenutoOrdinatoPerPeso().toString());
 		else if(tipologia.equals("nome"))
-			partita.getIO().mostraMessaggio(partita.getGiocatore().getBorsa().getContenutoOrdinatoPerNome().toString());
+			partita.getIO().mostraMessaggio("Contenuto borsa" + partita.getGiocatore().getBorsa().getContenutoOrdinatoPerNome().toString());
 		else if(tipologia.equals("group"))
-			partita.getIO().mostraMessaggio(partita.getGiocatore().getBorsa().getContenutoRaggruppatoPerPeso().toString());
+			partita.getIO().mostraMessaggio("Contenuto borsa" + partita.getGiocatore().getBorsa().getContenutoRaggruppatoPerPeso().toString());
 		else
 			partita.getIO().mostraMessaggio("Parametro non valido");
 	}

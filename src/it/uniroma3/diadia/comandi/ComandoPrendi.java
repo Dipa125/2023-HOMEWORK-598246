@@ -37,7 +37,7 @@ public class ComandoPrendi implements Comando {
 				}
 				else
 					partita.getIO().mostraMessaggio("La borsa sta per esplorere,"+
-													" dovresti priam posare qualcosa");
+													" dovresti prima posare qualcosa");
 			}
 		}
 
