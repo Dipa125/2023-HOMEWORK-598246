@@ -1,0 +1,32 @@
+package it.uniroma3.diadia.ambienti;
+
+public class Labirinto {
+
+	private Stanza stanzaIniziale;
+	private Stanza stanzaVincente;
+
+/*-----------------------------COSTRUTTORE-----------------------------*/	
+
+	public Labirinto() {
+		new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("Secchio", 5).addAttrezzo("Cartaccia", 1)
+							  .addStanzaMagica("Laboratorio").addAttrezzo("Tavolo", 15).addAttrezzo("PC", 5)
+							  .addStanza("N10").addAttrezzo("Tavolo", 15).addAttrezzo("PC", 5)
+							  .addStanzaBloccata("N11","Moneta","est").addAttrezzo("Lavagna", 20).addAttrezzo("Gesso", 1)
+							  .addStanza("Laboratorio").addAttrezzo("Tavolo", 15).addAttrezzo("PC", 5)
+							  .addStanza("Laboratorio").addAttrezzo("Tavolo", 15).addAttrezzo("PC", 5)
+							  .addStanza("Laboratorio").addAttrezzo("Tavolo", 15).addAttrezzo("PC", 5)
+							  .addStanza("Laboratorio").addAttrezzo("Tavolo", 15).addAttrezzo("PC", 5)
+							  .addStanzaVincente("Biblioteca")
+		.getLabirinto();
+	}
+	
+/*-------------------------------GET/SET------------------------------------*/
+	public Stanza getStanzaIniziale() {return stanzaIniziale;}
+    
+    public Stanza getStanzaVincente() {return stanzaVincente;}
+   
+    public void SetStanzaIniziale(Stanza iniziale) {this.stanzaIniziale = iniziale;}
+    
+    public void SetStanzaVincente(Stanza vincente) {this.stanzaVincente = vincente;}
+    
+}

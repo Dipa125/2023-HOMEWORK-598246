@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PartitaTest" project="2023-HOMEWORK-598246" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="it.uniroma3.diadia.PartitaTest" time="0.018" displayname="PartitaTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.PartitaTest]">
+    <testcase name="testVinta" classname="it.uniroma3.diadia.PartitaTest" time="0.015" displayname="testVinta()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.PartitaTest]/[method:testVinta()]"/>
+    <testcase name="testIsFinita" classname="it.uniroma3.diadia.PartitaTest" time="0.001" displayname="testIsFinita()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.PartitaTest]/[method:testIsFinita()]"/>
+    <testcase name="testGetStanzaCorrente" classname="it.uniroma3.diadia.PartitaTest" time="0.001" displayname="testGetStanzaCorrente()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.PartitaTest]/[method:testGetStanzaCorrente()]"/>
+  </testsuite>
+</testrun>

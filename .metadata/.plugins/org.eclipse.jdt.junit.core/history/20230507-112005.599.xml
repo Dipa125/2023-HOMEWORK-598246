@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StanzaTest" project="2023-HOMEWORK-598246" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="it.uniroma3.diadia.ambienti.StanzaTest" time="0.018" displayname="StanzaTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaTest]">
+    <testcase name="testHasAttrezzo" classname="it.uniroma3.diadia.ambienti.StanzaTest" time="0.013" displayname="testHasAttrezzo()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaTest]/[method:testHasAttrezzo()]"/>
+    <testcase name="testaddAttrezzo" classname="it.uniroma3.diadia.ambienti.StanzaTest" time="0.001" displayname="testaddAttrezzo()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaTest]/[method:testaddAttrezzo()]"/>
+    <testcase name="testGetAttrezzo" classname="it.uniroma3.diadia.ambienti.StanzaTest" time="0.002" displayname="testGetAttrezzo()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaTest]/[method:testGetAttrezzo()]"/>
+    <testcase name="testRemoveAttrezzo" classname="it.uniroma3.diadia.ambienti.StanzaTest" time="0.001" displayname="testRemoveAttrezzo()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaTest]/[method:testRemoveAttrezzo()]"/>
+  </testsuite>
+</testrun>

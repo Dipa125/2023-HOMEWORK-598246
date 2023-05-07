@@ -1,0 +1,33 @@
+package it.uniroma3.diadia.ambienti;
+
+import static org.junit.Assert.*;
+
+import java.util.*;
+
+import org.junit.Test;
+import org.junit.Before;
+
+import it.uniroma3.diadia.attrezzi.Attrezzo;
+
+class LabirintoBuilderTest {
+
+	private LabirintoBuilder labirintoBuilder;
+	private String nomeStanzaIniziale = "atrio";
+	private String nomeStanzaVincente = "uscita";
+
+	@Before
+	public void SetUp(){
+		labirintoBuilder = new LabirintoBuilder();
+	}
+	
+	@Test
+	public void testMonolocale() {
+		Labirinto monolocale = labirintoBuilder
+				.addStanzaIniziale(nomeStanzaIniziale)
+				.addStanzaVincente(nomeStanzaIniziale)
+				.getLabirinto();
+	assertEquals(nomeStanzaIniziale,monolocale.getStanzaIniziale().getNome());
+	assertEquals(nomeStanzaIniziale,monolocale.getStanzaVincente().getNome());
+	}
+
+}

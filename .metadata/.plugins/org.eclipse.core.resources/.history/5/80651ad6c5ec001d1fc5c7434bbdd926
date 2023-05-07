@@ -1,0 +1,59 @@
+package it.uniroma3.diadia.comandi;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import it.uniroma3.diadia.IOConsole;
+import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.ambienti.Labirinto;
+import it.uniroma3.diadia.ambienti.LabirintoBuilder;
+import it.uniroma3.diadia.attrezzi.Attrezzo;
+
+class ComandoPrendiTest {
+
+	private Partita partita;
+	private IOConsole io;
+	private Comando comando;
+	private Attrezzo chiave;
+	
+	
+	@BeforeEach
+	void SetUp() {
+		io = new IOConsole();
+		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("cartaccia", 1)
+				.addStanzaMagica("Laboratorio").addAttrezzo("tavolo", 15).addAttrezzo("pc", 5)
+				.addStanza("N10").addAttrezzo("lim", 30)
+				.addStanzaBloccata("N11","moneta","est").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)
+				.addStanza("Portineria").addAttrezzo("chiaveLunga", 3).addAttrezzo("chiave", 2)
+				.addStanza("N9").addAttrezzo("Torcia", 4)
+				.addStanzaBloccata("Mensa","chiave","sud").addAttrezzo("avanzi", 3)
+				.addStanzaBuia("Dispensa","torcia").addAttrezzo("moneta", 1)
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("Atrio", "Laboratorio", "nord")
+				.addAdiacenza("Atrio", "Mensa", "sud")
+				.addAdiacenza("Atrio", "N10", "est")
+				.addAdiacenza("Laboratorio", "N9", "ovest")
+				.addAdiacenza("Mensa", "Dispensa", "sud")
+				.addAdiacenza("N10", "N11", "est")
+				.addAdiacenza("N11", "Portineria", "nord")
+				.addAdiacenza("N11", "Biblioteca", "est")
+				.getLabirinto();
+		partita = new Partita(labirinto, io);
+		chiave = new Attrezzo("chiave",1);
+		partita.getStanzaCorrente().addAttrezzo(chiave);
+		comando = new ComandoPrendi();
+		comando.setParametro("chiave");
+	}
+	
+	@Test
+	void testEsegui() {
+		assertTrue(partita.getStanzaCorrente().hasAttrezzo("chiave"));
+		assertFalse(partita.getGiocatore().getBorsa().hasAttrezzo("chiave"));
+		comando.esegui(partita);
+		assertTrue(partita.getGiocatore().getBorsa().hasAttrezzo("chiave"));
+		assertFalse(partita.getStanzaCorrente().hasAttrezzo("chiave"));
+	}
+
+}

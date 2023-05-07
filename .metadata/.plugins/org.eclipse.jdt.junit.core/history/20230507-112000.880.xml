@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StanzaBuiaTest" project="2023-HOMEWORK-598246" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="it.uniroma3.diadia.ambienti.StanzaBuiaTest" time="0.015" displayname="StanzaBuiaTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBuiaTest]">
+    <testcase name="stanzaSenzaLuceTest" classname="it.uniroma3.diadia.ambienti.StanzaBuiaTest" time="0.013" displayname="stanzaSenzaLuceTest()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBuiaTest]/[method:stanzaSenzaLuceTest()]"/>
+    <testcase name="testGetDescrizioneBuia" classname="it.uniroma3.diadia.ambienti.StanzaBuiaTest" time="0.001" displayname="testGetDescrizioneBuia()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBuiaTest]/[method:testGetDescrizioneBuia()]"/>
+    <testcase name="stanzaConLuceTest" classname="it.uniroma3.diadia.ambienti.StanzaBuiaTest" time="0.0" displayname="stanzaConLuceTest()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBuiaTest]/[method:stanzaConLuceTest()]"/>
+  </testsuite>
+</testrun>

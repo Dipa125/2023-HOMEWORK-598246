@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StanzaBloccataTest" project="2023-HOMEWORK-598246" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="it.uniroma3.diadia.ambienti.StanzaBloccataTest" time="0.016" displayname="StanzaBloccataTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBloccataTest]">
+    <testcase name="stanzaChiusatest" classname="it.uniroma3.diadia.ambienti.StanzaBloccataTest" time="0.012" displayname="stanzaChiusatest()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBloccataTest]/[method:stanzaChiusatest()]"/>
+    <testcase name="getDescrizioneSenzaBloccoTest" classname="it.uniroma3.diadia.ambienti.StanzaBloccataTest" time="0.001" displayname="getDescrizioneSenzaBloccoTest()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBloccataTest]/[method:getDescrizioneSenzaBloccoTest()]"/>
+    <testcase name="stanzaApertaTest" classname="it.uniroma3.diadia.ambienti.StanzaBloccataTest" time="0.001" displayname="stanzaApertaTest()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBloccataTest]/[method:stanzaApertaTest()]"/>
+    <testcase name="getDescrizioneConBloccoTest" classname="it.uniroma3.diadia.ambienti.StanzaBloccataTest" time="0.001" displayname="getDescrizioneConBloccoTest()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaBloccataTest]/[method:getDescrizioneConBloccoTest()]"/>
+  </testsuite>
+</testrun>

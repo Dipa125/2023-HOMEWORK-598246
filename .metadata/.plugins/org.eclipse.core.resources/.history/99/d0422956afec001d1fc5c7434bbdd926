@@ -1,0 +1,45 @@
+package it.uniroma3.diadia.ambienti;
+
+import static org.junit.Assert.*;
+
+import java.util.*;
+
+import org.junit.Test;
+import org.junit.Before;
+
+import it.uniroma3.diadia.attrezzi.Attrezzo;
+
+public class LabirintoBuilderTest {
+
+	private LabirintoBuilder labirintoBuilder;
+	private String nomeStanzaIniziale = "Atrio";
+	private String nomeStanzaVincente = "Uscita";
+
+	@Before
+	public void SetUp(){
+		labirintoBuilder = new LabirintoBuilder();
+	}
+	
+	@Test
+	public void testMonolocale() {
+		Labirinto monolocale = labirintoBuilder
+				.addStanzaIniziale(nomeStanzaIniziale)
+				.addStanzaVincente(nomeStanzaIniziale)
+				.getLabirinto();
+		
+		assertEquals(nomeStanzaIniziale,monolocale.getStanzaIniziale().getNome());
+		assertEquals(nomeStanzaIniziale,monolocale.getStanzaVincente().getNome());
+	}
+
+	@Test
+	public void testMonolocaleConAttrezzo() {
+		Labirinto monolocale = labirintoBuilder
+				.addStanzaIniziale(nomeStanzaIniziale).addAttrezzo("spada",1)
+				.addStanzaVincente(nomeStanzaIniziale).addAttrezzo("spadina", 3)
+				.getLabirinto();
+		assertEquals(nomeStanzaIniziale,monolocale.getStanzaIniziale().getNome());
+		assertEquals(nomeStanzaIniziale,monolocale.getStanzaVincente().getNome());
+		assertEquals("spada",monolocale.getStanzaIniziale().getAttrezzo("spada").getNome());
+		assertEquals("spadina",monolocale.getStanzaVincente().getAttrezzo("spadina").getNome());
+	}
+}

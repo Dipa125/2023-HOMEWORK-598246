@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ComandoPrendiTest" project="2023-HOMEWORK-598246" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="it.uniroma3.diadia.comandi.ComandoPrendiTest" time="0.009" displayname="ComandoPrendiTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.comandi.ComandoPrendiTest]">
+    <testcase name="testEsegui" classname="it.uniroma3.diadia.comandi.ComandoPrendiTest" time="0.009" displayname="testEsegui()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.comandi.ComandoPrendiTest]/[method:testEsegui()]"/>
+  </testsuite>
+</testrun>

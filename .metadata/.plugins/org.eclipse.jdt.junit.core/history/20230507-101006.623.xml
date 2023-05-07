@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="LabirintoBuilderTest" project="2023-HOMEWORK-598246" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="it.uniroma3.diadia.ambienti.LabirintoBuilderTest" time="0.001" displayname="LabirintoBuilderTest" uniqueid="[engine:junit-vintage]/[runner:it.uniroma3.diadia.ambienti.LabirintoBuilderTest]">
+    <testcase name="testMonolocale" classname="it.uniroma3.diadia.ambienti.LabirintoBuilderTest" time="0.001" displayname="testMonolocale" uniqueid="[engine:junit-vintage]/[runner:it.uniroma3.diadia.ambienti.LabirintoBuilderTest]/[test:testMonolocale(it.uniroma3.diadia.ambienti.LabirintoBuilderTest)]"/>
+  </testsuite>
+</testrun>
