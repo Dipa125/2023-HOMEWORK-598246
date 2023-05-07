@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="StanzaMagicaTest" project="2023-HOMEWORK-598246" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="it.uniroma3.diadia.ambienti.StanzaMagicaTest" time="0.014" displayname="StanzaMagicaTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaMagicaTest]">
-    <testcase name="testAddAttrezzoNormale" classname="it.uniroma3.diadia.ambienti.StanzaMagicaTest" time="0.012" displayname="testAddAttrezzoNormale()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaMagicaTest]/[method:testAddAttrezzoNormale()]"/>
-    <testcase name="testAddAttrezzoMagico" classname="it.uniroma3.diadia.ambienti.StanzaMagicaTest" time="0.001" displayname="testAddAttrezzoMagico()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.StanzaMagicaTest]/[method:testAddAttrezzoMagico()]"/>
-  </testsuite>
-</testrun>

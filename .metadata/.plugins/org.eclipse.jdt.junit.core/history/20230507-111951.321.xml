@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="LabirintoTest" project="2023-HOMEWORK-598246" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="it.uniroma3.diadia.ambienti.LabirintoTest" time="0.015" displayname="LabirintoTest" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.LabirintoTest]">
-    <testcase name="testGetStanzaIniziale" classname="it.uniroma3.diadia.ambienti.LabirintoTest" time="0.013" displayname="testGetStanzaIniziale()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.LabirintoTest]/[method:testGetStanzaIniziale()]"/>
-    <testcase name="testGetStanzaVincente" classname="it.uniroma3.diadia.ambienti.LabirintoTest" time="0.001" displayname="testGetStanzaVincente()" uniqueid="[engine:junit-jupiter]/[class:it.uniroma3.diadia.ambienti.LabirintoTest]/[method:testGetStanzaVincente()]"/>
-  </testsuite>
-</testrun>
