@@ -44,7 +44,7 @@ public class LabirintoBuilder {
 	}
 	
 //--Ritona la lista delle stanze
-	public List<Stanza> getListaStanze(){
+	public List<? extends Stanza> getListaStanze(){
 		return this.listaStanze;
 	}
 	
@@ -101,9 +101,8 @@ public class LabirintoBuilder {
 
 //--Crea una stanza Magica con soglia di default
 	public LabirintoBuilder addStanzaMagica(String nomeStanza) {
-		Stanza nuova = this.getStanza(nomeStanza);
-		if(nuova == null) {
-			nuova = new StanzaMagica(nomeStanza);
+		if(this.getStanza(nomeStanza) == null) {
+			StanzaMagica nuova = new StanzaMagica(nomeStanza);
 			this.listaStanze.add(nuova);
 		}
 		else {System.out.println("Stanza già esistente");}
@@ -112,9 +111,8 @@ public class LabirintoBuilder {
 	
 //--Crea una stanza Magica con soglia impostata
 	public LabirintoBuilder addStanzaMagica(String nomeStanza, int soglia) {
-		Stanza nuova = this.getStanza(nomeStanza);
-		if(nuova == null) {
-			nuova = new StanzaMagica(nomeStanza,soglia);
+		if(this.getStanza(nomeStanza) == null) {
+			StanzaMagica nuova = new StanzaMagica(nomeStanza,soglia);
 			this.listaStanze.add(nuova);
 		}
 		else {System.out.println("Stanza già esistente");}
@@ -123,9 +121,8 @@ public class LabirintoBuilder {
 	
 //--Crea una stanza Bloccata
 	public LabirintoBuilder addStanzaBloccata(String nomeStanza, String direzione, String oggetto) {
-		Stanza nuova = this.getStanza(nomeStanza);
-		if(nuova == null) {
-			nuova = new StanzaBloccata(nomeStanza, direzione, oggetto);
+		if(this.getStanza(nomeStanza) == null) {
+			StanzaBloccata nuova = new StanzaBloccata(nomeStanza, direzione, oggetto);
 			this.listaStanze.add(nuova);
 		}
 		else {System.out.println("Stanza già esistente");}
@@ -134,9 +131,8 @@ public class LabirintoBuilder {
 	
 //--Crea una stanza Buia
 	public LabirintoBuilder addStanzaBuia(String nomeStanza, String oggetto) {
-		Stanza nuova = this.getStanza(nomeStanza);
-		if(nuova == null) {
-			nuova = new StanzaBuia(nomeStanza, oggetto);
+		if(this.getStanza(nomeStanza) == null) {
+			StanzaBuia nuova = new StanzaBuia(nomeStanza, oggetto);
 			this.listaStanze.add(nuova);
 		}
 		else {System.out.println("Stanza già esistente");}
