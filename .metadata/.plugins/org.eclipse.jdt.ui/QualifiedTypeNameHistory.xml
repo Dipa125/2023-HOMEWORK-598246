@@ -3,7 +3,4 @@
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
     <fullyQualifiedTypeName name="it.uniroma3.diadia.attrezzi.Attrezzo"/>
-    <fullyQualifiedTypeName name="it.uniroma3.diadia.ambienti.Labirinto"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
-    <fullyQualifiedTypeName name="it.uniroma3.diadia.ambienti.LabirintoBuilder"/>
 </qualifiedTypeNameHistroy>
