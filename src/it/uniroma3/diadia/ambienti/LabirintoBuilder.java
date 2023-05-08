@@ -58,9 +58,9 @@ public class LabirintoBuilder {
 		if(stanzaIniziale == null) {
 			stanzaIniziale = new Stanza(nomeStanza);
 			this.listaStanze.add(stanzaIniziale);
-			this.labirinto.SetStanzaIniziale(stanzaIniziale);
+			this.labirinto.setStanzaIniziale(stanzaIniziale);
 		}
-		else {this.labirinto.SetStanzaIniziale(stanzaIniziale);}
+		else {this.labirinto.setStanzaIniziale(stanzaIniziale);}
 		return this;
 	}
 
@@ -70,9 +70,9 @@ public class LabirintoBuilder {
 		if(stanzaVincente == null) {
 			stanzaVincente = new Stanza(nomeStanza);
 			this.listaStanze.add(stanzaVincente);
-			this.labirinto.SetStanzaVincente(stanzaVincente);
+			this.labirinto.setStanzaVincente(stanzaVincente);
 		}
-		else {this.labirinto.SetStanzaVincente(stanzaVincente);}
+		else {this.labirinto.setStanzaVincente(stanzaVincente);}
 		return this;
 	}
 

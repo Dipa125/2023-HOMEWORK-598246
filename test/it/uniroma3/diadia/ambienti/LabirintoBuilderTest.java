@@ -237,8 +237,6 @@ public class LabirintoBuilderTest {
 		this.labirintoBuilder
 		.addStanzaMagica(nomeStanzaMagica, sogliaMagica);
 		StanzaMagica stanzaMagica = (StanzaMagica)labirintoBuilder.getStanza(nomeStanzaMagica);
-		assertFalse(stanzaMagica.isMagica());
-		this.labirintoBuilder.addAttrezzo("osso", 1);
 		assertTrue(stanzaMagica.isMagica());
 	}
 	

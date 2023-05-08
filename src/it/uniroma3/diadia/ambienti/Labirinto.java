@@ -12,8 +12,8 @@ public class Labirinto {
     
     public Stanza getStanzaVincente() {return stanzaVincente;}
    
-    public void SetStanzaIniziale(Stanza iniziale) {this.stanzaIniziale = iniziale;}
+    public void setStanzaIniziale(Stanza iniziale) {this.stanzaIniziale = iniziale;}
     
-    public void SetStanzaVincente(Stanza vincente) {this.stanzaVincente = vincente;}
+    public void setStanzaVincente(Stanza vincente) {this.stanzaVincente = vincente;}
    
 }

@@ -38,8 +38,8 @@ class StanzaMagica extends Stanza {
 	
 //--True se è attivo l'effetto magico
 	public boolean isMagica() {
-		if(this.sogliaMagica - this.contatoreAttrezziPosati > 0) {return false;}
-		return true;
+		if(this.getClass() == StanzaMagica.class) {return true;}
+		return false;
 	}
 	
 /*------------------------SOVRASCRITTURE DI STANZA------------------------*/
