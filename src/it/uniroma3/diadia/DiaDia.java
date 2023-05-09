@@ -28,7 +28,7 @@ public class DiaDia {
 
 /*-----------------------------COSTRUTTORE-----------------------------*/	
 
-//--Costruttore di tutto il gioco
+//--Costruttore di tutto il gioco con un labirinto standard
 	public DiaDia(IO io) {
 		
 		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("cartaccia", 1)
@@ -53,8 +53,14 @@ public class DiaDia {
 		this.partita = new Partita(labirinto,io);
 		this.io = io;
 	}
-
 	
+//--Costruttore di tutto il gioco con un labirinto implementato nel main 
+public DiaDia(Labirinto lab,IO io) {
+		
+		Labirinto labirinto = lab;
+		this.partita = new Partita(labirinto,io);
+		this.io = io;
+	}
 	
 /*----------------------------GIOCO-----------------------------*/
 
