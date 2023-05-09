@@ -36,7 +36,7 @@ public class DiaDia {
 							  .addStanza("N10").addAttrezzo("lim", 30)
 							  .addStanzaBloccata("N11","est","moneta").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)
 							  .addStanza("Portineria").addAttrezzo("chiaveLunga", 3).addAttrezzo("chiave", 2)
-							  .addStanza("N9").addAttrezzo("Torcia", 4)
+							  .addStanza("N9").addAttrezzo("torcia", 4)
 							  .addStanzaBloccata("Mensa","sud","chiave").addAttrezzo("avanzi", 3)
 							  .addStanzaBuia("Dispensa","torcia").addAttrezzo("moneta", 1)
 							  .addStanzaVincente("Biblioteca")
