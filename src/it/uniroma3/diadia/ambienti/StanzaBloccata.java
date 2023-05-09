@@ -19,7 +19,7 @@ public class StanzaBloccata extends Stanza{
 //--Ritorna se stessa se la direzione selezionata è bloccata
 	@Override
 	public Stanza getStanzaAdiacente(String dir) {
-		if(dir == direzioneBloccata && !this.hasAttrezzo(oggetto)) {
+		if(dir.equals(direzioneBloccata) && !this.hasAttrezzo(oggetto)) {
 			return this;
 		}
 		return super.getStanzaAdiacente(dir);
@@ -27,14 +27,14 @@ public class StanzaBloccata extends Stanza{
 
 //--Ritorna una descrizione personalizzata se la direzione selezionata è bloccata
 	@Override
-	public String getDescrizione() {
+	public String toString() {
 		if(!this.hasAttrezzo(oggetto)) {
 			String ret =  "Qui la stanza in direzione " 
 						+  direzioneBloccata + " "
 						+ "è bloccata, prova con "
 						+  oggetto + "\n";
-			return ret + super.getDescrizione();
+			return ret + super.toString();
 		}
-		return super.getDescrizione();
+		return super.toString();
 	}
 }

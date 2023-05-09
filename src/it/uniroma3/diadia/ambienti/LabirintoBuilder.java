@@ -9,14 +9,16 @@ public class LabirintoBuilder {
 	private Map<String,String> direzioni;
 	
 	private Labirinto labirinto;
-	private List<Stanza> listaStanze;
+	private Stanza ultimaStanza;
+	private Map<String,Stanza> listaStanze;
 	
 /*-----------------------------COSTRUTTORE-----------------------------*/
 	
 //--Crea un labirinto vuoto
 	public LabirintoBuilder() {
 		this.labirinto = new Labirinto();
-		this.listaStanze = new ArrayList<Stanza>();
+		this.listaStanze = new HashMap<String,Stanza>();
+		this.ultimaStanza = null;
 		
 	//--Direzioni ammissibili
 		this.direzioni = new HashMap<String,String>();
@@ -35,16 +37,11 @@ public class LabirintoBuilder {
 	
 //--Ritorna una stanza del nome indicato
 	public Stanza getStanza(String nomeStanza) {
-		Iterator<Stanza> iteratore = this.listaStanze.iterator();
-		while(iteratore.hasNext()) {
-			Stanza s = iteratore.next();
-			if(s.getNome().equals(nomeStanza)){return s;}
-		}
-		return null;
+		return this.listaStanze.get(nomeStanza);
 	}
 	
 //--Ritona la lista delle stanze
-	public List<? extends Stanza> getListaStanze(){
+	public Map<String,Stanza> getListaStanze(){
 		return this.listaStanze;
 	}
 	
@@ -54,25 +51,19 @@ public class LabirintoBuilder {
 
 //--Crea una stanza e la imposta come stanza iniziale del labirinto
 	public LabirintoBuilder addStanzaIniziale(String nomeStanza) {
-		Stanza stanzaIniziale = this.getStanza(nomeStanza);
-		if(stanzaIniziale == null) {
-			stanzaIniziale = new Stanza(nomeStanza);
-			this.listaStanze.add(stanzaIniziale);
-			this.labirinto.setStanzaIniziale(stanzaIniziale);
-		}
-		else {this.labirinto.setStanzaIniziale(stanzaIniziale);}
+		Stanza stanzaIniziale = new Stanza(nomeStanza);
+		this.listaStanze.put(nomeStanza,stanzaIniziale);
+		this.ultimaStanza = stanzaIniziale;
+		this.labirinto.setStanzaIniziale(stanzaIniziale);
 		return this;
 	}
 
 //--Imposta la stanza vincente, se non è quella iniziale ne crea una nuova
 	public LabirintoBuilder addStanzaVincente(String nomeStanza) {
-		Stanza stanzaVincente = this.getStanza(nomeStanza);
-		if(stanzaVincente == null) {
-			stanzaVincente = new Stanza(nomeStanza);
-			this.listaStanze.add(stanzaVincente);
-			this.labirinto.setStanzaVincente(stanzaVincente);
-		}
-		else {this.labirinto.setStanzaVincente(stanzaVincente);}
+		Stanza stanzaVincente = new Stanza(nomeStanza);
+		this.listaStanze.put(nomeStanza,stanzaVincente);
+		this.ultimaStanza = stanzaVincente;
+		this.labirinto.setStanzaVincente(stanzaVincente);
 		return this;
 	}
 
@@ -90,60 +81,53 @@ public class LabirintoBuilder {
 
 //--Crea una stanza Normale
 	public LabirintoBuilder addStanza(String nomeStanza) {
-		Stanza nuova = this.getStanza(nomeStanza);
-		if(nuova == null) {
-			nuova = new Stanza(nomeStanza);
-			this.listaStanze.add(nuova);
-		}
-		else {System.out.println("Stanza già esistente");}
+		Stanza nuova = new Stanza(nomeStanza);
+		this.listaStanze.put(nomeStanza, nuova);
+		this.ultimaStanza = nuova;
 		return this;
 	}
 
 //--Crea una stanza Magica con soglia di default
 	public LabirintoBuilder addStanzaMagica(String nomeStanza) {
-		if(this.getStanza(nomeStanza) == null) {
-			StanzaMagica nuova = new StanzaMagica(nomeStanza);
-			this.listaStanze.add(nuova);
-		}
-		else {System.out.println("Stanza già esistente");}
+		StanzaMagica nuova = new StanzaMagica(nomeStanza);
+		this.listaStanze.put(nomeStanza, nuova);
+		this.ultimaStanza = nuova;
 		return this;
 	}
 	
 //--Crea una stanza Magica con soglia impostata
 	public LabirintoBuilder addStanzaMagica(String nomeStanza, int soglia) {
-		if(this.getStanza(nomeStanza) == null) {
-			StanzaMagica nuova = new StanzaMagica(nomeStanza,soglia);
-			this.listaStanze.add(nuova);
-		}
-		else {System.out.println("Stanza già esistente");}
+		StanzaMagica nuova = new StanzaMagica(nomeStanza,soglia);
+		this.listaStanze.put(nomeStanza, nuova);
+		this.ultimaStanza = nuova;
 		return this;
 	}
 	
 //--Crea una stanza Bloccata
 	public LabirintoBuilder addStanzaBloccata(String nomeStanza, String direzione, String oggetto) {
-		if(this.getStanza(nomeStanza) == null) {
-			StanzaBloccata nuova = new StanzaBloccata(nomeStanza, direzione, oggetto);
-			this.listaStanze.add(nuova);
-		}
-		else {System.out.println("Stanza già esistente");}
+		StanzaBloccata nuova = new StanzaBloccata(nomeStanza,direzione,oggetto);
+		this.listaStanze.put(nomeStanza, nuova);
+		this.ultimaStanza = nuova;
 		return this;
 	}
 	
 //--Crea una stanza Buia
 	public LabirintoBuilder addStanzaBuia(String nomeStanza, String oggetto) {
-		if(this.getStanza(nomeStanza) == null) {
-			StanzaBuia nuova = new StanzaBuia(nomeStanza, oggetto);
-			this.listaStanze.add(nuova);
-		}
-		else {System.out.println("Stanza già esistente");}
+		StanzaBuia nuova = new StanzaBuia(nomeStanza,oggetto);
+		this.listaStanze.put(nomeStanza, nuova);
+		this.ultimaStanza = nuova;
 		return this;
 	}	
 /*-------------------------------ATTREZZO------------------------------*/
 	
 //--Aggiunge un attrezzo nell'ultima stanza inserita nel labirinto
 	public LabirintoBuilder addAttrezzo(String nomeAttrezzo ,int peso) {
+		if(this.ultimaStanza == null) {
+			System.out.println("Ancora nessuna stanza inerita");
+			return this;
+		}
 		Attrezzo nuovo = new Attrezzo(nomeAttrezzo, peso);
-		this.listaStanze.get(this.listaStanze.size()-1).addAttrezzo(nuovo);
+		this.ultimaStanza.addAttrezzo(nuovo);
 		return this;
 	}
 	

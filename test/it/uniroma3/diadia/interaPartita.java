@@ -18,7 +18,7 @@ class interaPartita {
 		this.istruzioni = new ArrayList<String>();
 		this.istruzioni.add("vai est");
 		this.istruzioni.add("vai est");
-		this.istruzioni.add("vai est");
+		this.istruzioni.add("vai nord");
 		this.io = new IOSimulator(istruzioni);
 		this.gioco = new DiaDia(io);
 		gioco.gioca();
@@ -40,7 +40,7 @@ class interaPartita {
 		
 		assertEquals("Sei entrato in: N10",this.io.getOutput().get(1));
 		assertEquals("Sei entrato in: N11",this.io.getOutput().get(2));
-		assertEquals("Sei entrato in: Biblioteca",this.io.getOutput().get(3));
+		assertEquals("Sei entrato in: Portineria",this.io.getOutput().get(3));
 	}
 
 }

@@ -16,9 +16,9 @@ public class StanzaBuia extends Stanza{
 	
 //--Ritorna una descrizione personalizzata se stanza è ancora buia
 	@Override
-	public String getDescrizione() {
+	public String toString() {
 		if(this.hasAttrezzo(oggetto)) {
-			return super.getDescrizione();
+			return super.toString();
 		}
 		return "qui c'è un buio pesto";
 	}

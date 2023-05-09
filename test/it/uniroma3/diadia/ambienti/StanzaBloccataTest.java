@@ -42,7 +42,7 @@ class StanzaBloccataTest {
 				  +  "è bloccata, prova con chiave\n"
 				  +  "Stanza Corrente: Atrio\n"
 				  +  "Uscite: nord\n"
-				  +  "Attrezzi nella stanza: gomma(1kg) ", this.atrio.getDescrizione());
+				  +  "Attrezzi nella stanza: gomma(1kg) ", this.atrio.toString());
 	}
 	
 	@Test
@@ -50,6 +50,6 @@ class StanzaBloccataTest {
 		this.atrio.addAttrezzo(chiave);
 		assertEquals("Stanza Corrente: Atrio\n"
 				  +  "Uscite: nord\n"
-				  +  "Attrezzi nella stanza: chiave(2kg) ", this.atrio.getDescrizione());
+				  +  "Attrezzi nella stanza: chiave(2kg) ", this.atrio.toString());
 	}
 }

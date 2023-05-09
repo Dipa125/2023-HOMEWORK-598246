@@ -47,9 +47,6 @@ public class Stanza {
 //--Restituisce la stanza adiacente nella direzione specificata
 	public Stanza getStanzaAdiacente(String direzione) {return this.stanzeAdiacenti.get(direzione);}
     
-//--Restituisce la descrizione della stanza
-    public String getDescrizione() {return this.toString();}
-
 //--Restituisce le stanze adiacenti
     public Map<String, Stanza>getMapStanzeAdiacenti(){return this.stanzeAdiacenti;}
     
