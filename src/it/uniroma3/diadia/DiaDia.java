@@ -3,6 +3,7 @@ package it.uniroma3.diadia;
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comandi.*;
+import it.uniroma3.diadia.personaggi.*;
 
 /**
 Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
@@ -31,24 +32,25 @@ public class DiaDia {
 //--Costruttore di tutto il gioco con un labirinto standard
 	public DiaDia(IO io) {
 		
-		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("cartaccia", 1)
-							  .addStanzaMagica("Laboratorio").addAttrezzo("tavolo", 15).addAttrezzo("pc", 5)
-							  .addStanza("N10").addAttrezzo("lim", 30)
-							  .addStanzaBloccata("N11","est","moneta").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)
-							  .addStanza("Portineria").addAttrezzo("chiaveLunga", 3).addAttrezzo("chiave", 2)
-							  .addStanza("N9").addAttrezzo("torcia", 4)
-							  .addStanzaBloccata("Mensa","sud","chiave").addAttrezzo("avanzi", 3)
-							  .addStanzaBuia("Dispensa","torcia").addAttrezzo("moneta", 1)
-							  .addStanzaVincente("Biblioteca")
-							  .addAdiacenza("Atrio", "Laboratorio", "nord")
-							  .addAdiacenza("Atrio", "Mensa", "sud")
-							  .addAdiacenza("Atrio", "N10", "est")
-							  .addAdiacenza("Laboratorio", "N9", "ovest")
-							  .addAdiacenza("Mensa", "Dispensa", "sud")
-							  .addAdiacenza("N10", "N11", "est")
-							  .addAdiacenza("N11", "Portineria", "nord")
-							  .addAdiacenza("N11", "Biblioteca", "est")
-							  .getLabirinto();
+		Labirinto labirinto = new LabirintoBuilder()
+				.addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("osso", 1).addPersonaggio(new Cane("osso","bastone",2))
+				.addStanzaMagica("Laboratorio").addAttrezzo("tavolo", 15).addAttrezzo("pc", 5)
+				.addStanza("N10").addAttrezzo("lim", 30).addPersonaggio(new Strega())
+				.addStanzaBloccata("N11","est","moneta").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)
+				.addStanza("Portineria").addAttrezzo("chiaveLunga", 3).addAttrezzo("chiave", 2)
+				.addStanza("N9").addAttrezzo("torcia", 4).addPersonaggio(new Mago())
+				.addStanzaBloccata("Mensa","sud","chiave").addAttrezzo("avanzi", 3)
+				.addStanzaBuia("Dispensa","torcia").addAttrezzo("moneta", 1)
+				.addStanzaVincente("Biblioteca")
+				.addAdiacenza("Atrio", "Laboratorio", "nord")
+				.addAdiacenza("Atrio", "Mensa", "sud")
+				.addAdiacenza("Atrio", "N10", "est")
+				.addAdiacenza("Laboratorio", "N9", "ovest")
+				.addAdiacenza("Mensa", "Dispensa", "sud")
+				.addAdiacenza("N10", "N11", "est")
+				.addAdiacenza("N11", "Portineria", "nord")
+				.addAdiacenza("N11", "Biblioteca", "est")
+				.getLabirinto();
 		
 		this.partita = new Partita(labirinto,io);
 		this.io = io;
@@ -65,7 +67,7 @@ public DiaDia(Labirinto lab,IO io) {
 /*----------------------------GIOCO-----------------------------*/
 
 //--Funzione che permette di giocare ocn un ciclo
-	public void gioca() {
+	public void gioca(){
 		String istruzione;
 		this.io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 		
@@ -75,9 +77,9 @@ public DiaDia(Labirinto lab,IO io) {
 	}
 
 //--Processa le istruzione
-	private boolean processaIstruzione(String istruzione) {
-		Comando comandoDaEseguire;
-		FabbricaDiComandi factory = new FabbricaDiComandiFisarmonica();
+	private boolean processaIstruzione(String istruzione){
+		AbstractComando comandoDaEseguire;
+		FabbricaDiComandi factory = new FabbricaDiComandiRiflessiva();
 		comandoDaEseguire = factory.costruisciComando(istruzione);
 		comandoDaEseguire.esegui(this.partita);
 		
@@ -95,7 +97,7 @@ public DiaDia(Labirinto lab,IO io) {
 /*----------------------------MAIN-----------------------------*/
 
 //--Prima parte di codice eseguita
-	public static void main(String[] argc) {
+	public static void main(String[] argc){
 
 		IO io = new IOConsole();
 		DiaDia gioco = new DiaDia(io);

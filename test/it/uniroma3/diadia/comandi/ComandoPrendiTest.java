@@ -14,7 +14,7 @@ class ComandoPrendiTest {
 
 	private Partita partita;
 	private IOConsole io;
-	private Comando comando;
+	private AbstractComando comando;
 	
 	
 	@BeforeEach

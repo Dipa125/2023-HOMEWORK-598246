@@ -3,6 +3,7 @@ package it.uniroma3.diadia.ambienti;
 import java.util.*;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
 public class LabirintoBuilder {
 	
@@ -123,7 +124,7 @@ public class LabirintoBuilder {
 //--Aggiunge un attrezzo nell'ultima stanza inserita nel labirinto
 	public LabirintoBuilder addAttrezzo(String nomeAttrezzo ,int peso) {
 		if(this.ultimaStanza == null) {
-			System.out.println("Ancora nessuna stanza inerita");
+			System.out.println("Ancora nessuna stanza inserita");
 			return this;
 		}
 		Attrezzo nuovo = new Attrezzo(nomeAttrezzo, peso);
@@ -131,5 +132,16 @@ public class LabirintoBuilder {
 		return this;
 	}
 	
-	
+/*-------------------------------Personaggio------------------------------*/	
+
+//--Aggiunge un personaggio nell'ultima stanza inserita nel labirinto
+	public LabirintoBuilder addPersonaggio(AbstractPersonaggio p) {
+		if(this.ultimaStanza == null) {
+			System.out.println("Ancora nessuna stanza inserita");
+		}
+		if(!this.ultimaStanza.addPersonaggio(p)) {
+			System.out.println("Pensonaggio già presente nella stanza");
+		}
+		return this;
+	}
 }

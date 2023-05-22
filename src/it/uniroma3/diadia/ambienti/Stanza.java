@@ -2,6 +2,7 @@ package it.uniroma3.diadia.ambienti;
 import java.util.*;
 
 import it.uniroma3.diadia.attrezzi.*;
+import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
 /**
 Una stanza e' un luogo fisico nel gioco.
@@ -17,18 +18,18 @@ public class Stanza {
 	private String nome;
 	private Set<Attrezzo> attrezzi;
 	private Map<String,Stanza> stanzeAdiacenti;
+	private AbstractPersonaggio personaggio;
 
 /*-----------------------------COSTRUTTORE-----------------------------*/	
 	
-//--Costruttore di una stanza vuota senza uscite
+//--Costruttore di una stanza vuota senza uscite e senza personaggio
     public Stanza(String nome) {
         this.nome = nome;
         this.stanzeAdiacenti = new HashMap<String,Stanza>();
         this.attrezzi = new HashSet<Attrezzo>();
+        this.personaggio = null;
     }
 
-    
-    
 /*---------------------------------GET----------------------------------*/
     
 //--Restituisce il nome della stanza
@@ -49,6 +50,10 @@ public class Stanza {
     
 //--Restituisce le stanze adiacenti
     public Map<String, Stanza>getMapStanzeAdiacenti(){return this.stanzeAdiacenti;}
+    
+//--Restituisce il personaggio nella stanza, altrimenti null
+    public AbstractPersonaggio getPersonaggio() {return this.personaggio;}
+    
     
 /*-------------------------------STANZA-------------------------------*/
 
@@ -93,9 +98,18 @@ public class Stanza {
 			
 	}	
 
+/*-------------------------------PERSONAGGIO-------------------------------*/
 	
+//--Mette un attrezzo nella stanza
+    public boolean addPersonaggio(AbstractPersonaggio p) {
+        if(this.personaggio == null) {
+            this.personaggio = p;
+        	return true;
+        }        
+        return false;
+    }	
 	
-/*--------------------------OVERRIDE--------------------------*/	
+/*--------------------------------OVERRIDE----------------------------------*/	
 	
 //--Restituisce una rappresentazione stringa di questa stanza
     @Override
@@ -110,6 +124,8 @@ public class Stanza {
     	risultato.append("\nAttrezzi nella stanza: ");
     	for (Attrezzo attrezzo : this.attrezzi)
     		risultato.append(attrezzo.toString()+" ");
+    	risultato.append("\nPersonaggio: ");
+    	if(this.personaggio != null) {risultato.append(this.personaggio.getClass().getSimpleName());}
     	
     	return risultato.toString();	
     }

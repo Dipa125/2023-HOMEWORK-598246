@@ -17,7 +17,7 @@ class ComandoPosaTest {
 
 	private Partita partita;
 	private IO io;
-	private Comando comando;
+	private AbstractComando comando;
 	private Attrezzo chiave;
 	
 	

@@ -2,7 +2,7 @@ package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
 
-public class ComandoBorsa implements Comando {
+public class ComandoBorsa extends AbstractComando {
 
 	private String tipologia;
 	
@@ -22,26 +22,16 @@ public class ComandoBorsa implements Comando {
 		else
 			partita.getIO().mostraMessaggio("Parametro non valido");
 	}
-
-//--Setta il parametro per il comando se è presente		
+	
+//--Fornisce una descrizione del funzionamento del comando
+	public String getDescrizione() {
+		return "borsa 'peso-nome-group' --> contenuto della borsa ordinata secondo il parametro(se non inserito fa una stampa standard)";
+	}
+	
+//--Imposta il modo in cui ordinare al borsa
 	@Override
 	public void setParametro(String parametro) {
 		this.tipologia = parametro;
-	}
-
-	
-	
-	
-/*------------------------FUNZIONI PER I TEST-----------------------*/
-	
-	@Override
-	public String getNome() {
-		return "borsa";
-	}
-
-	@Override
-	public String getParametro() {
-		return "";
 	}
 	
 }

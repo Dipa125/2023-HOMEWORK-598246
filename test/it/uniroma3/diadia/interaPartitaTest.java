@@ -14,7 +14,7 @@ class interaPartitaTest {
 	private DiaDia gioco;
 	
 	@BeforeEach
-	void SetUp() {
+	void SetUp(){
 		this.istruzioni = new ArrayList<String>();
 		this.istruzioni.add("vai nord");		//1
 		this.istruzioni.add("vai ovest");		//2

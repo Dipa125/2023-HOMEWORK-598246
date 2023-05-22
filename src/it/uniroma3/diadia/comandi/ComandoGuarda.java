@@ -1,9 +1,8 @@
 package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
-import it.uniroma3.diadia.ambienti.*;
 
-public class ComandoGuarda implements Comando {
+public class ComandoGuarda extends AbstractComando {
 
 /*------------------------FUNZIONI PER IL COMANDO-----------------------*/	
 	
@@ -14,22 +13,8 @@ public class ComandoGuarda implements Comando {
 
 	}
 
-//--Setta il parametro per il comando se è presente	
-	@Override
-	public void setParametro(String parametro){}
-
-
-	
-/*------------------------FUNZIONI PER I TEST-----------------------*/	
-	
-	@Override
-	public String getNome() {
-		return "guarda";
+//--Fornisce una descrizione del funzionamento del comando
+	public String getDescrizione() {
+		return "guarda --> fornisce informazioni sulla stanza corrente";
 	}
-	
-	@Override
-	public String getParametro() {
-		return "";
-	}
-
 }

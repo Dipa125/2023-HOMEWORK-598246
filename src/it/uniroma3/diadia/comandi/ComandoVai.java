@@ -3,7 +3,7 @@ package it.uniroma3.diadia.comandi;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Stanza;
 
-public class ComandoVai implements Comando{
+public class ComandoVai extends AbstractComando{
 	
 	private String direzione;
 	
@@ -29,25 +29,15 @@ public class ComandoVai implements Comando{
 		partita.getIO().mostraMessaggio("Sei entrato in: "+partita.getStanzaCorrente().getNome());
 		partita.getGiocatore().setCfu(partita.getGiocatore().getCfu()-1);
 	}
+	
+//--Fornisce una descrizione del funzionamento del comando
+	public String getDescrizione() {
+		return "vai 'direzione' --> sposta il personaggio nella direzione seleziona";
+	}	
 
-//--Setta il parametro per il comando se è presente		
+//--Imposta la direzione da prendere
 	@Override
-	public void setParametro(String parametro){
+	public void setParametro(String parametro) {
 		this.direzione = parametro;
-	}
-	
-	
-	
-	
-/*------------------------FUNZIONI PER I TEST-----------------------*/
-	
-	@Override
-	public String getNome() {
-		return "vai";
-	}
-	
-	@Override
-	public String getParametro() {
-		return direzione;
-	}
-}
+		
+	}}

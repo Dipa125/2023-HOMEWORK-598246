@@ -3,7 +3,7 @@ package it.uniroma3.diadia.comandi;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class ComandoPrendi implements Comando {
+public class ComandoPrendi extends AbstractComando {
 
 	private String oggetto;
 
@@ -42,26 +42,14 @@ public class ComandoPrendi implements Comando {
 		}
 
 	}
-
-//--Setta il parametro per il comando se è presente	
+	
+//--Fornisce una descrizione del funzionamento del comando
+	public String getDescrizione() {
+		return "prendi 'nome' --> prende l'oggetto chiamato 'nome' dalla stanza corrente e lo mette in borsa";
+	}	
+	
 	@Override
 	public void setParametro(String parametro) {
-		this.oggetto = parametro;
+		this.oggetto = parametro;		
 	}
-	
-	
-	
-	
-/*------------------------FUNZIONI PER I TEST-----------------------*/
-	
-	@Override
-	public String getNome() {
-		return "prendi";
-	}
-	
-	@Override
-	public String getParametro() {
-		return oggetto;
-	}
-
 }

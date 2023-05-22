@@ -2,7 +2,7 @@ package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
 
-public class ComandoNonValido implements Comando {
+public class ComandoNonValido extends AbstractComando {
 
 /*------------------------FUNZIONI PER IL COMANDO-----------------------*/
 
@@ -11,24 +11,9 @@ public class ComandoNonValido implements Comando {
 	public void esegui(Partita partita) {
 		partita.getIO().mostraMessaggio("Questo comando non esiste non so cosa fare");
 	}
-
-//--Setta il parametro per il comando se è presente	
-	@Override
-	public void setParametro(String parametro){}
 	
-	
-	
-	
-/*------------------------FUNZIONI PER I TEST-----------------------*/	
-	
-	@Override
-	public String getNome() {
-		return "non valido";
+//--Fornisce una descrizione del funzionamento del comando
+	public String getDescrizione() {
+		return "NonValido --> ogni volta che viene usato un camando inesistente";
 	}
-	
-	@Override
-	public String getParametro() {
-		return "";
-	}
-
 }
