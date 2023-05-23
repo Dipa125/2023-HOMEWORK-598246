@@ -13,5 +13,10 @@ public class Mago extends AbstractPersonaggio {
 		partita.getStanzaCorrente().addAttrezzo(nuovo);
 		return "Come facevi ad andare in giro con quel coso cosi pesante.";
 	}
+	
+	@Override
+	public String saluta() {
+		return "Salve giovane, sono il mago dell'università";
+	}
 
 }

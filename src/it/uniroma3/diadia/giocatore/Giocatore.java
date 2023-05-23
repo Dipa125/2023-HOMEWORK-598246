@@ -8,7 +8,7 @@ Ha anche uan borsa con gli attrezzi
 
 public class Giocatore {
 	
-	static final private int CFU_INIZIALI = 20;
+	static final private int CFU_INIZIALI = 30;
 	
 	private int cfu;
 	private Borsa borsa;

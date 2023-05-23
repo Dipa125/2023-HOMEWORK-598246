@@ -10,5 +10,10 @@ public class Strega extends AbstractPersonaggio{
 		partita.getGiocatore().getBorsa().removeAttrezzo(attrezzo.getNome());
 		return "HAHAHA... La strega ride e non succede nulla";
 	}
+	
+	@Override
+	public String saluta() {
+		return "Ohhhh ciao, non sto tanto bene avrei bisogno di un oggetto";
+	}
 
 }

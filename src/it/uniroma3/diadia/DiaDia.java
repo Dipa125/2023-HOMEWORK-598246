@@ -33,7 +33,7 @@ public class DiaDia {
 	public DiaDia(IO io) {
 		
 		Labirinto labirinto = new LabirintoBuilder()
-				.addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("osso", 1).addPersonaggio(new Cane("osso","bastone",2))
+				.addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("osso", 1).addPersonaggio(new Cane())
 				.addStanzaMagica("Laboratorio").addAttrezzo("tavolo", 15).addAttrezzo("pc", 5)
 				.addStanza("N10").addAttrezzo("lim", 30).addPersonaggio(new Strega())
 				.addStanzaBloccata("N11","est","moneta").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)

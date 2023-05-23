@@ -6,4 +6,5 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 public abstract class AbstractPersonaggio {
 	
 	public abstract String riceviRegalo(Attrezzo attrezzo, Partita partita);
+	public abstract String saluta();
 }

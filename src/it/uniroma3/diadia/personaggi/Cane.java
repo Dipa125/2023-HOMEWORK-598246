@@ -8,9 +8,9 @@ public class Cane extends AbstractPersonaggio {
 	private String nomeAttrezzoPreferito;
 	private Attrezzo attrezzoRegalo;
 	
-	public Cane(String nomeAttrezzoPreferito, String nomeAttrezzoRegalo, int peso ) {
-		this.nomeAttrezzoPreferito = nomeAttrezzoPreferito;
-		this.attrezzoRegalo = new Attrezzo(nomeAttrezzoRegalo,peso);
+	public Cane() {
+		this.nomeAttrezzoPreferito = "osso";
+		this.attrezzoRegalo = new Attrezzo("bastone",2);
 	}
 	
 	@Override
@@ -26,6 +26,11 @@ public class Cane extends AbstractPersonaggio {
 			partita.getStanzaCorrente().addAttrezzo(partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzoPreferito));
 			return "il cane sputa"+this.attrezzoRegalo.getNome()+" e ti morde una gamba";
 		}
+	}
+	
+	@Override
+	public String saluta() {
+		return "BAU BAU BAU";
 	}
 
 }
