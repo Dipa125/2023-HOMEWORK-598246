@@ -3,7 +3,6 @@ package it.uniroma3.diadia;
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comandi.*;
-import it.uniroma3.diadia.personaggi.*;
 
 /**
 Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
@@ -33,24 +32,47 @@ public class DiaDia {
 	public DiaDia(IO io) {
 		
 		Labirinto labirinto = new LabirintoBuilder()
-				.addStanzaIniziale("Atrio").addAttrezzo("secchio", 5).addAttrezzo("osso", 1).addPersonaggio(new Cane())
-				.addStanzaMagica("Laboratorio").addAttrezzo("tavolo", 15).addAttrezzo("pc", 5)
-				.addStanza("N10").addAttrezzo("lim", 30).addPersonaggio(new Strega())
-				.addStanzaBloccata("N11","est","moneta").addAttrezzo("lavagna", 20).addAttrezzo("gesso", 1)
-				.addStanza("Portineria").addAttrezzo("chiaveLunga", 3).addAttrezzo("chiave", 2)
-				.addStanza("N9").addAttrezzo("torcia", 4).addPersonaggio(new Mago())
-				.addStanzaBloccata("Mensa","sud","chiave").addAttrezzo("avanzi", 3)
-				.addStanzaBuia("Dispensa","torcia").addAttrezzo("moneta", 1)
-				.addStanzaVincente("Biblioteca")
-				.addAdiacenza("Atrio", "Laboratorio", "nord")
-				.addAdiacenza("Atrio", "Mensa", "sud")
-				.addAdiacenza("Atrio", "N10", "est")
-				.addAdiacenza("Laboratorio", "N9", "ovest")
-				.addAdiacenza("Mensa", "Dispensa", "sud")
-				.addAdiacenza("N10", "N11", "est")
-				.addAdiacenza("N11", "Portineria", "nord")
-				.addAdiacenza("N11", "Biblioteca", "est")
-				.getLabirinto();
+			.addStanzaIniziale("Atrio")
+			.addAttrezzo("secchio", 5,"Atrio")
+			.addAttrezzo("osso", 1,"Atrio")
+			.addPersonaggio("Cane","Atrio")
+			
+			.addStanzaMagica("Laboratorio")
+			.addAttrezzo("tavolo", 15,"Laboratorio")
+			.addAttrezzo("pc", 5,"Laboratorio")
+			
+			.addStanza("N10")
+			.addAttrezzo("lim", 30,"N10")
+			.addPersonaggio("Strega","N10")
+			
+			.addStanzaBloccata("N11","est","moneta")
+			.addAttrezzo("lavagna", 20,"N11")
+			.addAttrezzo("gesso", 1,"N11")
+			
+			.addStanza("Portineria")
+			.addAttrezzo("chiaveLunga", 3,"Portineria")
+			.addAttrezzo("chiave", 2,"Portineria")
+			
+			.addStanza("N9")
+			.addAttrezzo("torcia", 4,"N9")
+			.addPersonaggio("Mago","N9")
+			
+			.addStanzaBloccata("Mensa","sud","chiave")
+			.addAttrezzo("avanzi", 3,"Mensa")
+			
+			.addStanzaBuia("Dispensa","torcia")
+			.addAttrezzo("moneta", 1,"Dispensa")
+			
+			.addStanzaVincente("Biblioteca")
+			.addAdiacenza("Atrio", "Laboratorio", "nord")
+			.addAdiacenza("Atrio", "Mensa", "sud")
+			.addAdiacenza("Atrio", "N10", "est")
+			.addAdiacenza("Laboratorio", "N9", "ovest")
+			.addAdiacenza("Mensa", "Dispensa", "sud")
+			.addAdiacenza("N10", "N11", "est")
+			.addAdiacenza("N11", "Portineria", "nord")
+			.addAdiacenza("N11", "Biblioteca", "est")
+			.getLabirinto();
 		
 		this.partita = new Partita(labirinto,io);
 		this.io = io;
