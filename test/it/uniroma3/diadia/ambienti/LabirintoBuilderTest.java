@@ -34,8 +34,8 @@ public class LabirintoBuilderTest {
 	@Test//----------------------------------------------------------------------------------------//
 	public void testMonolocaleConAttrezzo() {
 		Labirinto monolocale = labirintoBuilder
-				.addStanzaIniziale(nomeStanzaIniziale).addAttrezzo("spada",1)
-				.addStanzaVincente(nomeStanzaIniziale).addAttrezzo("spadina", 3)
+				.addStanzaIniziale(nomeStanzaIniziale).addAttrezzo("spada",1,"Atrio")
+				.addStanzaVincente(nomeStanzaIniziale).addAttrezzo("spadina", 3,"Atrio")
 				.getLabirinto();
 	
 		assertEquals(nomeStanzaIniziale,monolocale.getStanzaIniziale().getNome());
@@ -48,8 +48,8 @@ public class LabirintoBuilderTest {
 	public void testMonolocaleConAttrezzoSingoloDuplicato() {
 		Labirinto monolocale = labirintoBuilder
 				.addStanzaIniziale(nomeStanzaIniziale)
-				.addAttrezzo("spada",1)
-				.addAttrezzo("spada",1)
+				.addAttrezzo("spada",1,"Atrio")
+				.addAttrezzo("spada",1,"Atrio")
 				.getLabirinto();
 		int size = monolocale.getStanzaIniziale().getAttrezzi().size();
 		Set<Attrezzo> test = new HashSet<Attrezzo>();	test.add(new Attrezzo("spada",1));
@@ -77,11 +77,11 @@ public class LabirintoBuilderTest {
 	@Test//----------------------------------------------------------------------------------------//
 	public void testTrilocale(){
 		Labirinto trilocale = labirintoBuilder
-				.addStanzaIniziale(nomeStanzaIniziale).addAttrezzo("sedia", 1)
+				.addStanzaIniziale(nomeStanzaIniziale).addAttrezzo("sedia", 1,"Atrio")
 				.addStanza("biblioteca")
 				.addAdiacenza(nomeStanzaIniziale, "biblioteca", "sud")
 				.addAdiacenza("biblioteca", nomeStanzaIniziale, "nord")
-				.addAttrezzo("libro antico", 5)
+				.addAttrezzo("libro antico", 5,"biblioteca")
 				.addStanzaVincente(nomeStanzaVincente)
 				.addAdiacenza("biblioteca", nomeStanzaVincente, "est")
 				.addAdiacenza(nomeStanzaVincente,"biblioteca" , "ovest")
@@ -145,7 +145,7 @@ public class LabirintoBuilderTest {
 		int peso = 1;
 		Labirinto maze = this.labirintoBuilder
 				.addStanzaIniziale(this.nomeStanzaIniziale)
-				.addAttrezzo(nomeAttrezzo, peso)
+				.addAttrezzo(nomeAttrezzo, peso,"Atrio")
 				.getLabirinto();
 		Attrezzo attrezzo = new Attrezzo(nomeAttrezzo,peso);
 		assertEquals(attrezzo,maze.getStanzaIniziale().getAttrezzo(nomeAttrezzo));
@@ -159,7 +159,7 @@ public class LabirintoBuilderTest {
 		labirintoBuilder
 				.addStanzaIniziale(nomeStanzaIniziale)
 				.addStanza(nomeStanza)
-				.addAttrezzo(nomeAttrezzo, peso)
+				.addAttrezzo(nomeAttrezzo, peso,nomeStanza)
 				.getLabirinto();
 		assertTrue(this.labirintoBuilder.getStanza(nomeStanza).getAttrezzi().contains(new Attrezzo (nomeAttrezzo,peso)));
 		assertEquals(new Attrezzo(nomeAttrezzo,peso),this.labirintoBuilder.getStanza(nomeStanza).getAttrezzo(nomeAttrezzo));
@@ -173,7 +173,7 @@ public class LabirintoBuilderTest {
 		this.labirintoBuilder
 				.addStanzaIniziale(nomeStanzaIniziale)
 				.addStanza(nomeStanza)
-				.addAttrezzo(nomeAttrezzo, peso)
+				.addAttrezzo(nomeAttrezzo, peso,nomeStanza)
 				.getLabirinto();
 		Attrezzo attrezzo = new Attrezzo(nomeAttrezzo,peso);
 		assertEquals(attrezzo,labirintoBuilder.getStanza(nomeStanza).getAttrezzo(nomeAttrezzo));
@@ -188,8 +188,8 @@ public class LabirintoBuilderTest {
 		String nomeStanza1 = "Stanza 1";
 		this.labirintoBuilder
 		.addStanza(nomeStanza1)
-		.addAttrezzo(nomeAttrezzo1, peso1)
-		.addAttrezzo(nomeAttrezzo2, peso2);
+		.addAttrezzo(nomeAttrezzo1, peso1,nomeStanza1)
+		.addAttrezzo(nomeAttrezzo2, peso2,nomeStanza1);
 		assertEquals(new Attrezzo(nomeAttrezzo2,peso2),labirintoBuilder.getStanza(nomeStanza1).getAttrezzo(nomeAttrezzo2));
 		assertEquals(new Attrezzo(nomeAttrezzo1,peso1),labirintoBuilder.getStanza(nomeStanza1).getAttrezzo(nomeAttrezzo1));
 	}
@@ -207,8 +207,8 @@ public class LabirintoBuilderTest {
 		this.labirintoBuilder
 		.addStanza(nomeStanza1)
 		.addStanza(nomeStanza2)
-		.addAttrezzo(nomeAttrezzo1, peso1)
-		.addAttrezzo(nomeAttrezzo2, peso2);
+		.addAttrezzo(nomeAttrezzo1, peso1,nomeStanza2)
+		.addAttrezzo(nomeAttrezzo2, peso2,nomeStanza2);
 		assertEquals(new Attrezzo(nomeAttrezzo1,peso1),labirintoBuilder.getStanza(nomeStanza2).getAttrezzo(nomeAttrezzo1));
 		assertEquals(new Attrezzo(nomeAttrezzo2,peso2),labirintoBuilder.getStanza(nomeStanza2).getAttrezzo(nomeAttrezzo2));
 	}
@@ -223,9 +223,9 @@ public class LabirintoBuilderTest {
 		String nomeStanza2 = "Stanza 2";
 		this.labirintoBuilder
 		.addStanza(nomeStanza1)
-		.addAttrezzo(nomeAttrezzo1, peso1)
+		.addAttrezzo(nomeAttrezzo1, peso1,nomeStanza1)
 		.addStanza(nomeStanza2)
-		.addAttrezzo(nomeAttrezzo2, peso2);
+		.addAttrezzo(nomeAttrezzo2, peso2,nomeStanza2);
 		assertEquals(new Attrezzo(nomeAttrezzo1,peso1),labirintoBuilder.getStanza(nomeStanza1).getAttrezzo(nomeAttrezzo1));
 		assertEquals(new Attrezzo(nomeAttrezzo2,peso2),labirintoBuilder.getStanza(nomeStanza2).getAttrezzo(nomeAttrezzo2));
 	}
@@ -252,8 +252,8 @@ public class LabirintoBuilderTest {
 		String nomeStanzaMagica = "Stanza Magica";
 		this.labirintoBuilder
 		.addStanzaMagica(nomeStanzaMagica, sogliaMagica)
-		.addAttrezzo(nomeAttrezzo1, peso1)
-		.addAttrezzo(nomeAttrezzo2, peso2);
+		.addAttrezzo(nomeAttrezzo1, peso1,nomeStanzaMagica)
+		.addAttrezzo(nomeAttrezzo2, peso2,nomeStanzaMagica);
 		assertEquals(new Attrezzo(nomeAttrezzo1,peso1), labirintoBuilder.getStanza(nomeStanzaMagica).getAttrezzo(nomeAttrezzo1));
 		assertEquals(new Attrezzo(nomeAttrezzo2Inv,peso2_x2), labirintoBuilder.getStanza(nomeStanzaMagica).getAttrezzo(nomeAttrezzo2Inv));
 	}
@@ -263,15 +263,15 @@ public class LabirintoBuilderTest {
 	public void testLabirintoConStanzaBloccata_ConPassepartout() {
 		this.labirintoBuilder
 		.addStanzaIniziale(nomeStanzaIniziale)
-		.addStanzaBloccata("stanza bloccata", "nord", "chiave").addAttrezzo("chiave", 1)
+		.addStanzaBloccata("stanzaBloccata", "nord", "chiave").addAttrezzo("chiave", 1,"stanzaBloccata")
 		.addAdiacenza(nomeStanzaIniziale, "stanza bloccata", "nord")
-		.addAdiacenza("stanza bloccata", nomeStanzaIniziale, "sud")
+		.addAdiacenza("stanzaBloccata", nomeStanzaIniziale, "sud")
 		.addStanzaVincente(nomeStanzaVincente)
-		.addAdiacenza("stanza bloccata", nomeStanzaVincente, "nord")
-		.addAdiacenza(nomeStanzaVincente, "stanza bloccata", "sud");
+		.addAdiacenza("stanzaBloccata", nomeStanzaVincente, "nord")
+		.addAdiacenza(nomeStanzaVincente, "stanzaBloccata", "sud");
 		Stanza stanzaVincente = new Stanza(nomeStanzaVincente);
 		//Asserisce che in presenza di passepartout, invocato il metodo getStanzaAdiacente(), la stanza bloccata ritorna la corretta adiacenza
-		assertEquals(stanzaVincente,labirintoBuilder.getStanza("stanza bloccata").getStanzaAdiacente("nord"));	
+		assertEquals(stanzaVincente,labirintoBuilder.getStanza("stanzaBloccata").getStanzaAdiacente("nord"));	
 	}
 	
 	@Test//----------------------------------------------------------------------------------------//
@@ -296,8 +296,8 @@ public class LabirintoBuilderTest {
 				.addStanzaIniziale(nomeStanzaIniziale)
 				.addStanzaVincente(nomeStanzaVincente)
 				.addStanza("corridoio")
-				.addAttrezzo("chiave", 1)
-				.addAttrezzo("lanterna", 1)
+				.addAttrezzo("chiave", 1,"corridoio")
+				.addAttrezzo("lanterna", 1,"corridoio")
 				.addStanzaBloccata("corridoio bloccato","nord","chiave")
 				.addStanzaMagica("stanza magica", 1)
 				.addStanzaBuia("stanza buia","lanterna")

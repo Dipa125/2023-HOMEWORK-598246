@@ -1,7 +1,8 @@
 package it.uniroma3.diadia;
 
+import java.io.FileNotFoundException;
+
 import it.uniroma3.diadia.ambienti.Labirinto;
-import it.uniroma3.diadia.ambienti.LabirintoBuilder;
 import it.uniroma3.diadia.comandi.*;
 
 /**
@@ -29,50 +30,10 @@ public class DiaDia {
 /*-----------------------------COSTRUTTORE-----------------------------*/	
 
 //--Costruttore di tutto il gioco con un labirinto standard
-	public DiaDia(IO io) {
+	public DiaDia(IO io) throws FileNotFoundException, FormatoFileNonValidoException{
 		
-		Labirinto labirinto = new LabirintoBuilder()
-			.addStanzaIniziale("Atrio")
-			.addAttrezzo("secchio", 5,"Atrio")
-			.addAttrezzo("osso", 1,"Atrio")
-			.addPersonaggio("Cane","Atrio")
-			
-			.addStanzaMagica("Laboratorio")
-			.addAttrezzo("tavolo", 15,"Laboratorio")
-			.addAttrezzo("pc", 5,"Laboratorio")
-			
-			.addStanza("N10")
-			.addAttrezzo("lim", 30,"N10")
-			.addPersonaggio("Strega","N10")
-			
-			.addStanzaBloccata("N11","est","moneta")
-			.addAttrezzo("lavagna", 20,"N11")
-			.addAttrezzo("gesso", 1,"N11")
-			
-			.addStanza("Portineria")
-			.addAttrezzo("chiaveLunga", 3,"Portineria")
-			.addAttrezzo("chiave", 2,"Portineria")
-			
-			.addStanza("N9")
-			.addAttrezzo("torcia", 4,"N9")
-			.addPersonaggio("Mago","N9")
-			
-			.addStanzaBloccata("Mensa","sud","chiave")
-			.addAttrezzo("avanzi", 3,"Mensa")
-			
-			.addStanzaBuia("Dispensa","torcia")
-			.addAttrezzo("moneta", 1,"Dispensa")
-			
-			.addStanzaVincente("Biblioteca")
-			.addAdiacenza("Atrio", "Laboratorio", "nord")
-			.addAdiacenza("Atrio", "Mensa", "sud")
-			.addAdiacenza("Atrio", "N10", "est")
-			.addAdiacenza("Laboratorio", "N9", "ovest")
-			.addAdiacenza("Mensa", "Dispensa", "sud")
-			.addAdiacenza("N10", "N11", "est")
-			.addAdiacenza("N11", "Portineria", "nord")
-			.addAdiacenza("N11", "Biblioteca", "est")
-			.getLabirinto();
+		
+		Labirinto labirinto = new Labirinto("LabFile.txt");
 		
 		this.partita = new Partita(labirinto,io);
 		this.io = io;
@@ -119,7 +80,7 @@ public DiaDia(Labirinto lab,IO io) {
 /*----------------------------MAIN-----------------------------*/
 
 //--Prima parte di codice eseguita
-	public static void main(String[] argc){
+	public static void main(String[] argc) throws FileNotFoundException, FormatoFileNonValidoException{
 
 		IO io = new IOConsole();
 		DiaDia gioco = new DiaDia(io);

@@ -5,19 +5,13 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 class StanzaMagica extends Stanza {
 	
 	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
-	static final private int SOGLIA_MAGICA_DEFAULT = 3;
 	
 	private int contatoreAttrezziPosati;
 	private int sogliaMagica;
 
 /*-----------------------------COSTRUTTORE-----------------------------*/	
-	
-//--Costruttore di una Stanza Magica senza soglia
-	public StanzaMagica(String nome) {
-		this(nome, SOGLIA_MAGICA_DEFAULT);
-	}
 
-	//--Costruttore di una Stanza Magica con soglia
+//--Costruttore di una Stanza Magica
 	public StanzaMagica(String nome, int soglia) {
 		super(nome);
 		this.contatoreAttrezziPosati = 0;

@@ -1,0 +1,8 @@
+Stanze: atrio, biblioteca, N10, portineria, N9
+StanzeBloccate: N11 est moneta, mensa sud chiave
+StanzeBuie: dispensa torcia
+StanzeMagiche: laboratorio 3
+Inizio: atrio
+Vincente: biblioteca
+Attrezzi: secchio 5 atrio, osso 1 atrio, tavolo 15 laboratorio, pc 5 laboratorio, lim 30 N10, lavagna 20 N11, gesso 1 N11, chiaveLunga 3 portineria, chiave 2 portineria, torcia 4 N9, avanzi 3 mensa, moneta 1 dispensa
+Uscite: atrio nord laboratorio, atrio sud mensa, atrio est N10, laboratorio ovest N9, mensa sud dispensa, N10 est N11, N11 nord portineria, N11 est biblioteca

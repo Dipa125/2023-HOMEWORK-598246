@@ -2,6 +2,7 @@ package it.uniroma3.diadia;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,7 @@ class interaPartitaTest {
 	private DiaDia gioco;
 	
 	@BeforeEach
-	void SetUp(){
+	void SetUp() throws FileNotFoundException, FormatoFileNonValidoException{
 		this.istruzioni = new ArrayList<String>();
 		this.istruzioni.add("vai nord");		//1
 		this.istruzioni.add("vai ovest");		//2
@@ -47,11 +48,11 @@ class interaPartitaTest {
 	
 	@Test
 	void test() {		
-		assertEquals("Sei entrato in: Laboratorio",this.io.getOutput().get(1));
+		assertEquals("Sei entrato in: laboratorio",this.io.getOutput().get(1));
 		assertEquals("Sei entrato in: N9",this.io.getOutput().get(2));
 		assertEquals("Sei entrato in: N10",this.io.getOutput().get(11));
-		assertEquals("Sei entrato in: Dispensa",this.io.getOutput().get(15));
-		assertEquals("Sei entrato in: Biblioteca",this.io.getOutput().get(22));
+		assertEquals("Sei entrato in: dispensa",this.io.getOutput().get(15));
+		assertEquals("Sei entrato in: biblioteca",this.io.getOutput().get(22));
 	}
 
 }

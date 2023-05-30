@@ -20,7 +20,7 @@ class ComandoPrendiTest {
 	@BeforeEach
 	void SetUp() {
 		io = new IOConsole();
-		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("chiave", 1)
+		Labirinto labirinto = new LabirintoBuilder().addStanzaIniziale("Atrio").addAttrezzo("chiave", 1,"Atrio")
 													.getLabirinto();
 		partita = new Partita(labirinto, io);
 		comando = new ComandoPrendi();
