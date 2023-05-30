@@ -1,55 +1,24 @@
 package it.uniroma3.diadia;
 
 import it.uniroma3.diadia.ambienti.*;
+import static it.uniroma3.diadia.properties.Costanti.*;
 
 import java.io.*;
 import java.util.*;
 
 public class CaricatoreLabirinto {
 
-	/* prefisso di una singola riga di testo contenente tutti i nomi delle stanze */
-	private static final String STANZE_MARKER = "Stanze: ";
-	
-	/* prefisso di una singola riga di testo contenente tutti i nomi delle stanze bloccate */
-	private static final String STANZE_MARKER_BLOCCATE = "StanzeBloccate: ";
-	
-	/* prefisso di una singola riga di testo contenente tutti i nomi delle stanze buie*/
-	private static final String STANZE_MARKER_BUIE = "StanzeBuie: ";
-	
-	/* prefisso di una singola riga di testo contenente tutti i nomi delle stanze magiche*/
-	private static final String STANZE_MARKER_MAGICHE = "StanzeMagiche: ";
-	
-	/* prefisso di una singola riga di testo conenente tutti i nomi dei personaggi nel formato <nomePersonaggio> <nomeStanza>*/
-	private static final String PERSONAGGI_MARKER = "Personaggi: ";
-
-	/* prefisso di una singola riga contenente il nome della stanza iniziale */
-	private static final String STANZA_INIZIALE_MARKER = "Inizio: ";    
-
-	/* prefisso della riga contenente il nome stanza vincente */
-	private static final String STANZA_VINCENTE_MARKER = "Vincente: ";  
-
-	/* prefisso della riga contenente le specifiche degli attrezzi da collocare nel formato <nomeAttrezzo> <peso> <nomeStanza> */
-	private static final String ATTREZZI_MARKER = "Attrezzi: ";
-
-	/* prefisso della riga contenente le specifiche dei collegamenti tra stanza nel formato <nomeStanzaDa> <direzione> <nomeStanzaA> */
-	private static final String USCITE_MARKER = "Uscite: ";
-
-	/*
-	 *  Esempio di un possibile file di specifica di un labirinto (vedi POO-26-eccezioni-file.pdf)
-
-		Stanze: biblioteca, N10, N11
-		Inizio: N10
-		Vincente: N11
-		Attrezzi: martello 10 biblioteca, pinza 2 N10
-		Uscite: biblioteca nord N10, biblioteca sud N11
-
-	 */
 	private LineNumberReader reader;
 	private LabirintoBuilder labBuilder;
 
 
 	public CaricatoreLabirinto(String nomeFile) throws FileNotFoundException {
-		this.reader = new LineNumberReader(new FileReader(nomeFile));
+		try {
+			this.reader = new LineNumberReader(new FileReader(nomeFile));
+		}catch (Exception e) {
+			this.reader = new LineNumberReader(new StringReader(nomeFile));
+		}
+		
 		this.labBuilder = new LabirintoBuilder();
 	}
 
@@ -62,7 +31,7 @@ public class CaricatoreLabirinto {
 			this.leggiInizialeEvincente();
 			this.leggiECollocaAttrezzi();
 			this.leggiEImpostaUscite();
-			//this.leggiEImpostaPersonaggi();
+			this.leggiEImpostaPersonaggi();
 		} finally {
 			try {
 				reader.close();

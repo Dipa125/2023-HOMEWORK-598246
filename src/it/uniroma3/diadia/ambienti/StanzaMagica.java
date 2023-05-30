@@ -1,10 +1,9 @@
 package it.uniroma3.diadia.ambienti;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import static it.uniroma3.diadia.properties.Costanti.NUMERO_MASSIMO_ATTREZZI;
 
 class StanzaMagica extends Stanza {
-	
-	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
 	
 	private int contatoreAttrezziPosati;
 	private int sogliaMagica;

@@ -4,26 +4,10 @@ import java.io.FileNotFoundException;
 
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.comandi.*;
+import static it.uniroma3.diadia.properties.Costanti.MESSAGGIO_BENVENUTO;
 
-/**
-Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
-Per giocare crea un'istanza di questa classe e invoca il letodo gioca
-
-Questa e' la classe principale crea e istanzia tutte le altre
-**/
 public class DiaDia {
-
-	static final private String MESSAGGIO_BENVENUTO = ""+
-			"Ti trovi nell'Universita', ma oggi e' diversa dal solito...\n" +
-			"Meglio andare al piu' presto in biblioteca a studiare. Ma dov'e'?\n"+
-			"I locali sono popolati da strani personaggi, " +
-			"alcuni amici, altri... chissa!\n"+
-			"Ci sono attrezzi che potrebbero servirti nell'impresa:\n"+
-			"puoi raccoglierli, usarli, posarli quando ti sembrano inutili\n" +
-			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
-			"Per conoscere le istruzioni usa il comando 'aiuto'."; 
 		
-
 	private Partita partita;
 	private IO io;
 

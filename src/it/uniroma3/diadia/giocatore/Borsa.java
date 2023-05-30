@@ -4,10 +4,10 @@ import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.comparatori.ComparatoreAttrezzoPerNome;
 
 import java.util.*;
+import static it.uniroma3.diadia.properties.Costanti.DEFAULT_PESO_MAX_BORSA;
 
 public class Borsa {
 	
-	public final static int DEFAULT_PESO_MAX_BORSA = 10;
 	private List<Attrezzo> attrezzi;
 	private int pesoMax;
 

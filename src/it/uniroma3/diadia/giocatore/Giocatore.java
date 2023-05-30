@@ -1,14 +1,8 @@
 package it.uniroma3.diadia.giocatore;
 
-/*
-Una classe per modellare il giocatore.
-Ha dei CFU che se finiscono perde la partita.
-Ha anche uan borsa con gli attrezzi
-*/
+import static it.uniroma3.diadia.properties.Costanti.CFU_INIZIALI;
 
 public class Giocatore {
-	
-	static final private int CFU_INIZIALI = 30;
 	
 	private int cfu;
 	private Borsa borsa;

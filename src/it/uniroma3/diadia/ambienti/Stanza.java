@@ -4,16 +4,9 @@ import java.util.*;
 import it.uniroma3.diadia.attrezzi.*;
 import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
-/**
-Una stanza e' un luogo fisico nel gioco.
-E' collegata ad altre stanze attraverso delle uscite.
-Ogni uscita e' associata ad una direzione.
-Alcune stanze contengono degli oggetti
-**/
+import static it.uniroma3.diadia.properties.Costanti.NUMERO_MASSIMO_ATTREZZI;
 
 public class Stanza {
-
-	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
 	
 	private String nome;
 	private Set<Attrezzo> attrezzi;
