@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import it.uniroma3.diadia.ambienti.Labirinto;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.personaggi.Cane;
+import it.uniroma3.diadia.properties.Direzione;
 
 class CaricatoreLabirintoTest {
 
@@ -83,7 +84,7 @@ class CaricatoreLabirintoTest {
 		Set<String> test1 = new HashSet<String>();		test1.add("nord");
 		Set<String> test2 = new HashSet<String>();		test2.add("sud");
 		
-		assertEquals(bilocale.getStanzaVincente(),bilocale.getStanzaIniziale().getStanzaAdiacente("nord"));
+		assertEquals(bilocale.getStanzaVincente(),bilocale.getStanzaIniziale().getStanzaAdiacente(Direzione.NORD));
 		assertEquals(test1,bilocale.getStanzaIniziale().getDirezioni());
 		assertEquals(test2,bilocale.getStanzaVincente().getDirezioni());
 	}

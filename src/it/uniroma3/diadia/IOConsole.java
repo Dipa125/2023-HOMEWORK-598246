@@ -2,6 +2,12 @@ package it.uniroma3.diadia;
 import java.util.Scanner;
 
 public class IOConsole implements IO {
+	
+	Scanner scannerDiLinee;
+	
+	public IOConsole(Scanner scannerDiLinee) {
+		this.scannerDiLinee = scannerDiLinee;
+	}
 
 //--Stampa il messaggio sul terminale
 	@Override
@@ -12,8 +18,7 @@ public class IOConsole implements IO {
 //--Legge le scritte sul terminale
 	@Override
 	public String leggiRiga() {
-		Scanner scannerDiLinee = new Scanner(System.in);
-		String riga = scannerDiLinee.nextLine();
+		String riga = this.scannerDiLinee.nextLine();
 		return riga;
 	}
 }

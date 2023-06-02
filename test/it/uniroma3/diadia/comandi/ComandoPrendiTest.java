@@ -3,6 +3,7 @@ package it.uniroma3.diadia.comandi;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,8 @@ class ComandoPrendiTest {
 	
 	@BeforeEach
 	void SetUp() throws FileNotFoundException, FormatoFileNonValidoException {
-		io = new IOConsole();
+		Scanner scannerDiLinee = new Scanner(System.in);
+		io = new IOConsole(scannerDiLinee);
 		String monolocale = "Stanze: atrio\r\n"
 				+ "StanzeBloccate: \r\n"
 				+ "StanzeBuie: \r\n"

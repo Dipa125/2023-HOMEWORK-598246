@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import it.uniroma3.diadia.FormatoFileNonValidoException;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.properties.Direzione;
 
 public class LabirintoBuilderTest {
 
@@ -83,10 +84,10 @@ public class LabirintoBuilderTest {
 				+ "Uscite: atrio nord uscita\r\n"
 				+ "Personaggi: ";
 		Labirinto bilocale = new Labirinto(labString);
-		Set<String> test1 = new HashSet<String>();		test1.add("nord");
-		Set<String> test2 = new HashSet<String>();		test2.add("sud");
+		Set<Direzione> test1 = new HashSet<Direzione>();		test1.add(Direzione.NORD);
+		Set<Direzione> test2 = new HashSet<Direzione>();		test2.add(Direzione.SUD);
 		
-		assertEquals(bilocale.getStanzaVincente(),bilocale.getStanzaIniziale().getStanzaAdiacente("nord"));
+		assertEquals(bilocale.getStanzaVincente(),bilocale.getStanzaIniziale().getStanzaAdiacente(Direzione.NORD));
 		assertEquals(test1,bilocale.getStanzaIniziale().getDirezioni());
 		assertEquals(test2,bilocale.getStanzaVincente().getDirezioni());
 	}
@@ -106,7 +107,7 @@ public class LabirintoBuilderTest {
 		
 		assertEquals(nomeStanzaIniziale, trilocale.getStanzaIniziale().getNome());
 		assertEquals(nomeStanzaVincente, trilocale.getStanzaVincente().getNome());
-		assertEquals("biblioteca",trilocale.getStanzaIniziale().getStanzaAdiacente("sud").getNome());
+		assertEquals("biblioteca",trilocale.getStanzaIniziale().getStanzaAdiacente(Direzione.SUD).getNome());
 	}
 	
 	@Test//----------------------------------------------------------------------------------------//
@@ -138,14 +139,13 @@ public class LabirintoBuilderTest {
 				+ "Personaggi: ";
 		Labirinto maze = new Labirinto(labString);
 				Stanza test = new Stanza("stanza 5");
-		assertNull(maze.getStanzaIniziale().getStanzaAdiacente("nord-est"));
 		assertTrue(maze.getStanzaIniziale().getMapStanzeAdiacenti().size()<=4);
 		assertTrue(!maze.getStanzaIniziale().getMapStanzeAdiacenti().containsValue(test));
-		Map<String,Stanza> mappa = new HashMap<>();
-		mappa.put("nord", new Stanza("stanza 1"));
-		mappa.put("ovest", new Stanza("stanza 2"));
-		mappa.put("sud", new Stanza("stanza 3"));
-		mappa.put("est", new Stanza("stanza 4"));
+		Map<Direzione,Stanza> mappa = new HashMap<>();
+		mappa.put(Direzione.NORD, new Stanza("stanza 1"));
+		mappa.put(Direzione.SUD, new Stanza("stanza 2"));
+		mappa.put(Direzione.EST, new Stanza("stanza 3"));
+		mappa.put(Direzione.OVEST, new Stanza("stanza 4"));
 		assertEquals(mappa.keySet(),maze.getStanzaIniziale().getMapStanzeAdiacenti().keySet());
 	}
 	

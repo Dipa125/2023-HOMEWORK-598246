@@ -3,6 +3,7 @@ package it.uniroma3.diadia.comandi;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,8 @@ class ComandoVaiTest {
 				+ "Personaggi: ";
 		Labirinto labirinto = new Labirinto(bilocale);
 		this.corrente = new Stanza("atrio");
-		this.io = new IOConsole();
+		Scanner scannerDiLinee = new Scanner(System.in);
+		this.io = new IOConsole(scannerDiLinee);
 		this.partita = new Partita(labirinto,this.io);
 		this.cmdVai = new ComandoVai();
 		this.cmdVai.setParametro("nord");

@@ -1,6 +1,9 @@
 package it.uniroma3.diadia;
 
 import it.uniroma3.diadia.ambienti.*;
+import it.uniroma3.diadia.ambienti.Labirinto.LabirintoBuilder;
+import it.uniroma3.diadia.properties.Direzione;
+
 import static it.uniroma3.diadia.properties.Costanti.*;
 
 import java.io.*;
@@ -19,7 +22,7 @@ public class CaricatoreLabirinto {
 			this.reader = new LineNumberReader(new StringReader(nomeFile));
 		}
 		
-		this.labBuilder = new LabirintoBuilder();
+		this.labBuilder = new Labirinto.LabirintoBuilder();
 	}
 
 	public Map<String,Stanza> carica() throws FormatoFileNonValidoException {
@@ -69,16 +72,19 @@ public class CaricatoreLabirinto {
 	}
 	
 	private void leggiECreaStanzeBloccate() throws FormatoFileNonValidoException  {
+		
 		String nomiStanze = this.leggiRigaCheCominciaPer(STANZE_MARKER_BLOCCATE);
 		for(String SpecificaStanzaBloccata : separaStringheAlleVirgole(nomiStanze)) {
 			String nomeStanza = null;
-			String direzione = null;
-			String nomeAttrezzo = null; 
+			String nomeAttrezzo = null;
+			String direzioneString = null;
+			Direzione direzione;
 			try (Scanner scannerLinea = new Scanner(SpecificaStanzaBloccata)) {
 				check(scannerLinea.hasNext(),msgTerminazionePrecoce("il nome di una stanza bloccata."));
 				nomeStanza = scannerLinea.next();
-				check(scannerLinea.hasNext(),msgTerminazionePrecoce("la direzione "+direzione+" bloccata."));
-				direzione = scannerLinea.next();
+				check(scannerLinea.hasNext(),msgTerminazionePrecoce("la direzione è bloccata."));
+				direzioneString = scannerLinea.next();
+				direzione =  Direzione.VUOTA.getDirezioneDaStringa(direzioneString);
 				check(scannerLinea.hasNext(),msgTerminazionePrecoce("il nome dell'oggetto per sbloccarla "+nomeAttrezzo+"."));
 				nomeAttrezzo = scannerLinea.next();
 			}
@@ -182,10 +188,10 @@ public class CaricatoreLabirinto {
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("le uscite di una stanza."));
 					String stanzaPartenza = scannerDiLinea.next();
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la direzione di una uscita della stanza "+stanzaPartenza));
-					String dir = scannerDiLinea.next();
-					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la destinazione di una uscita della stanza "+stanzaPartenza+" nella direzione "+dir));
+					Direzione direzione =  Direzione.VUOTA.getDirezioneDaStringa(scannerDiLinea.next());
+					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la destinazione di una uscita della stanza "+stanzaPartenza+" nella direzione "+direzione.getString()));
 					String stanzaDestinazione = scannerDiLinea.next();
-					impostaUscita(stanzaPartenza, dir, stanzaDestinazione);
+					impostaUscita(stanzaPartenza, direzione, stanzaDestinazione);
 				}
 			}
 		}
@@ -195,7 +201,7 @@ public class CaricatoreLabirinto {
 		return "Terminazione precoce del file prima di leggere "+msg;
 	}
 
-	private void impostaUscita(String stanzaDa, String dir, String nomeA) throws FormatoFileNonValidoException {
+	private void impostaUscita(String stanzaDa, Direzione dir, String nomeA) throws FormatoFileNonValidoException {
 		check(isStanzaValida(stanzaDa),"Stanza di partenza sconosciuta "+dir);
 		check(isStanzaValida(nomeA),"Stanza di destinazione sconosciuta "+ nomeA);
 		this.labBuilder.addAdiacenza(stanzaDa, nomeA, dir);

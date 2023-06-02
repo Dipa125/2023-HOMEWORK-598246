@@ -3,6 +3,7 @@ package it.uniroma3.diadia;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,8 @@ class PartitaTest {
 	
 	@BeforeEach
 	void SetUp() throws FileNotFoundException, FormatoFileNonValidoException {
-		this.io = new IOConsole();
+		Scanner scannerDiLinee = new Scanner(System.in);
+		this.io = new IOConsole(scannerDiLinee);
 		Labirinto labirinto = new Labirinto("LabFile.txt");
 		this.partita = new Partita(labirinto, io);
 	}
