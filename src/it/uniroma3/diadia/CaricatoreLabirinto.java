@@ -84,7 +84,7 @@ public class CaricatoreLabirinto {
 				nomeStanza = scannerLinea.next();
 				check(scannerLinea.hasNext(),msgTerminazionePrecoce("la direzione è bloccata."));
 				direzioneString = scannerLinea.next();
-				direzione =  Direzione.VUOTA.getDirezioneDaStringa(direzioneString);
+				direzione =  Direzione.valueOf(direzioneString.toUpperCase());
 				check(scannerLinea.hasNext(),msgTerminazionePrecoce("il nome dell'oggetto per sbloccarla "+nomeAttrezzo+"."));
 				nomeAttrezzo = scannerLinea.next();
 			}
@@ -188,8 +188,8 @@ public class CaricatoreLabirinto {
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("le uscite di una stanza."));
 					String stanzaPartenza = scannerDiLinea.next();
 					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la direzione di una uscita della stanza "+stanzaPartenza));
-					Direzione direzione =  Direzione.VUOTA.getDirezioneDaStringa(scannerDiLinea.next());
-					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la destinazione di una uscita della stanza "+stanzaPartenza+" nella direzione "+direzione.getString()));
+					Direzione direzione =  Direzione.valueOf(scannerDiLinea.next().toUpperCase());
+					check(scannerDiLinea.hasNext(),msgTerminazionePrecoce("la destinazione di una uscita della stanza "+stanzaPartenza+" nella direzione "+direzione.toString()));
 					String stanzaDestinazione = scannerDiLinea.next();
 					impostaUscita(stanzaPartenza, direzione, stanzaDestinazione);
 				}

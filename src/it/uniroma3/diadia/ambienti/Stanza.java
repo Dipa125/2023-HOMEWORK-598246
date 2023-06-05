@@ -113,7 +113,7 @@ public class Stanza {
     	risultato.append("\nUscite:");
     	
     	for (Direzione direzione : this.stanzeAdiacenti.keySet())
-    		risultato.append(" " + direzione.getString());
+    		risultato.append(" " + direzione.toString());
     	
     	risultato.append("\nAttrezzi nella stanza: ");
     	for (Attrezzo attrezzo : this.attrezzi)

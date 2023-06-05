@@ -39,6 +39,6 @@ public class ComandoVai extends AbstractComando{
 //--Imposta la direzione da prendere
 	@Override
 	public void setParametro(String parametro) {
-		this.direzione = Direzione.VUOTA.getDirezioneDaStringa(parametro);
+		this.direzione = Direzione.valueOf(parametro.toUpperCase());
 		
 	}}

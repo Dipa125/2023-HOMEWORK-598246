@@ -32,7 +32,7 @@ public class StanzaBloccata extends Stanza{
 	public String toString() {
 		if(!this.hasAttrezzo(oggetto)) {
 			String ret =  "Qui la stanza in direzione " 
-						+  direzioneBloccata.getString() + " "
+						+  direzioneBloccata.toString() + " "
 						+ "è bloccata, prova con "
 						+  oggetto + "\n";
 			return ret + super.toString();
