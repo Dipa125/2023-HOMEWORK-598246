@@ -32,7 +32,7 @@ public class Costanti {
 	final static public int DEFAULT_PESO_MAX_BORSA = 10;
 	
 //-----------------------GIOCATORE-------------------------------------------------------
-	public final static int CFU_INIZIALI = 10;
+	public final static int CFU_INIZIALI = 40;
 	
 	
 
